@@ -1,0 +1,67 @@
+﻿<view title="'Maker'">
+    <content has-header="true" padding="true">
+        <input type="text" ng-model="quiz.name" placeholder="Enter survey name"/>
+        <div>
+            <ul>
+                <div
+                        class="col-xs-12 questionContainer"
+                        ng-repeat="question in quiz.questions">
+                    <div Class="question">
+                        <a
+                                class="question-text"
+                                href="#"
+                                editable-text="question.q"
+                                buttons="no"
+                                e-id="editbox"
+                                e-class="col-xs-12"
+                                onshow="focusEditBox()"
+                                e-placeholder="Enter question text"
+                                blur="submit">{{ question.q || 'Tap to edit' }}</a>
+                <span
+                        ng-click="removeQuestion(question.name)"
+                        class="glyphicon glyphicon-remove pull-right">
+                </span>
+                    </div>
+                    <br />
+                    <div
+                            class="col-xs-8 col-xs-offset-4 answerContainer"
+                            ng-class="{true: 'correct', false: 'incorrect'}[answer.bomb]"
+                            ng-repeat="answer in question.answers track by $index">
+                        <div class="answer">
+                            <a
+                                    class="pull-left"
+                                    href="#"
+                                    editable-text="answer.a"
+                                    buttons="no"
+                                    e-id="editbox"
+                                    onshow="focusEditBox()"
+                                    e-placeholder= "Enter answer text"
+                                    blur="submit">{{ answer.a || 'Tap to edit' }}
+                            </a>
+                            <br/>
+                            <label for="{{answer}}">Correct<input id="{{answer}}" type="checkbox" ng-model="answer.bomb" class="pull-left" /></label>
+                        </div>
+                <span
+                        ng-click="removeAnswer(question.name, answer.name)"
+                        class="glyphicon glyphicon-remove pull-right">
+                </span>
+                    </div>
+                    <div
+                            class="col-xs-8 col-xs-offset-4 adderstyle"
+                            ng-click="addAnswer(question.name)">
+                        <p class="addertext">Add Answer</p>
+                        <span class="glyphicon glyphicon-plus-sign pull-right"></span>
+                    </div>
+                </div>
+                <div
+                        class="col-xs-12 adderstyle"
+                        ng-click="addQuestion()">
+                    <p
+                            class="addertext">Add Question</p>
+                    <span class="glyphicon glyphicon-plus-sign pull-right"></span>
+                </div>
+            </ul>
+        </div>
+    </content>
+</view>
+

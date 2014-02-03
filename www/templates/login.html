@@ -1,0 +1,33 @@
+<view title="'Login'" right-buttons="rightButtons">
+    <content has-header="true" padding="true">
+
+        <div ng-hide="loggedIn" class="list list-inset">
+            <label ng-show="newUser" class="item item-input">
+                <input ng-model="username" type="text" placeholder="Username">
+            </label>
+            <label ng-show="newUser" class="item item-input">
+                <input ng-model="phone" type="text" placeholder="Phone Number">
+            </label>
+            <label class="item item-input">
+                <input ng-model="email" type="text" placeholder="Email">
+            </label>
+            <label class="item item-input">
+                <input ng-model="password" type="password" placeholder="Password">
+            </label>
+        </div>
+        <h3 ng-show="loggedIn">Welcome back {{user.email}}!</h3>
+        <ul ng-hide="loggedIn" class="list">
+            <li class="item item-toggle">
+                New User
+                <label class="toggle">
+                    <input ng-model="newUser" type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <button ng-hide="newUser || loggedIn" class="button button-block button-royal" ng-click="login(email, password)">Login</button>
+        <button ng-show="newUser" class="button button-block button-royal" ng-click="register(email, password, username, phone)">Register</button>
+    </content>
+</view>

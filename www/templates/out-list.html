@@ -1,0 +1,10 @@
+<view title="'Maker'" right-buttons="rightButtons">
+    <content has-header="true" padding="true">
+        <list>
+            <item ng-repeat="quiz in quizes | orderByPriority" ui-sref="tabs.makername({name: quiz.$id})">
+                {{quiz.name}}
+                <i class="ion-plus-circled pull-right"></i>
+            </item>
+        </list>
+    </content>
+</view>
