@@ -33,14 +33,18 @@ questApp.factory('userService', function ($firebaseAuth, $location, $q) {
     };
 
     factory.register = function (email, password, username, phone) {
-        factory.auth.$createUser(email, password, function (error, user) {
-            if (!error) {
+        var deferred = $q.defer();
+        factory.auth.$createUser(email, password, null).then(function (user) {
                 window.localStorage.setItem("user", JSON.stringify(user));
                 factory.currentUser =  user;
                 factory.currentUserDb = factory.usersDb.child(email.replace('.', ""));
                 factory.usersDb.update({userId: user.id, username: username, phoneNumber: phone});
-            }
-        });
+                factory.loggedIn = true;
+                deferred.resolve(user);
+            },
+          function (error) {
+            deferred.resolve(error);
+          });
     };
 
     factory.init = function () {

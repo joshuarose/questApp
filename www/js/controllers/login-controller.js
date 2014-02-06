@@ -19,7 +19,13 @@ questApp.controller('login-controller', function ($scope, $firebaseAuth, $fireba
     };
 
     $scope.register = function (email, password, username, phone) {
-        userService.register(email, password, username, phone);
+        var promise = userService.register(email, password, username, phone);
+        promise.then(function (user) {
+          $scope.user = user;
+          $scope.loggedIn = true;
+        }, function (error) {
+          $scope.error = error;
+        });
     };
 
     $scope.logOut = function () {

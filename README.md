@@ -1,6 +1,3 @@
-ionic-angular-cordova-seed
-==========================
-
-The perfect starting point for an Ionic project.
-
-- [Ionic Tutorials](http://ionicframework.com/tutorials/)
+Quest App V0.1  By:OpenSpaceApps
+===============================================
+Built with: Ionic Framework and Cordova

@@ -4,46 +4,23 @@
 questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams, $firebase) {
     var url = "https://bubblequizdb.firebaseio.com/users/" + userService.getCurrentUser().email.replace('.', "") + "/createdQuests/" + $stateParams.name;
     var createdQuestRef = new Firebase(url);
+    createdQuestRef.once("value", function (questCb) {
+      var quest = questCb.val();
+      if (quest === null || quest.questionCount === undefined) {
+        createdQuestRef.set({name: "new quiz", questionCount: 1, questions: { question1: { name: "question1", answerCount: 1,  answers: {"answer1": {"name" : "answer1", "bomb" : false}}}}});
+      }
+    });
 
-    var quizRef = $firebase(createdQuestRef);
-    quizRef.$bind($scope, 'quiz');
-
-    if (quizRef.questionCount === undefined) {
-      quizRef.$set({name: "new quiz", questionCount: 1, questions: { question1: { name: "question1", answerCount: 1,  answers: {"answer1": {"name" : "answer1", "bomb" : false}}}}});
-      quizRef.$bind($scope, 'quiz');
-    }
+    $scope.quizRef = $firebase(createdQuestRef);
+    $scope.quizRef.$bind($scope, 'quiz');
 
     $scope.addQuestion = function () {
-        if (quizRef.questionCount === 0) {
-            $score.quiz = {
-              name: "new quiz",
-              questionCount: 1,
-              questions:
-              {
-                question1:
-                {
-                  name: "question1",
-                  answerCount: 1,
-                  answers:
-                  {
-                    "answer1": {
-                      "name" : "answer1",
-                      "bomb" : false
-                    }
-                  }
-                }
-              }
-            };
-            //quizRef.$set({name: "new quiz", questionCount: 1, questions: { question1: { name: "question1", answerCount: 1,  answers: {"answer1": {"name" : "answer1", "bomb" : false}}}}});
-        }
-        else{
-            var nextQuestionId = quizRef.questionCount + 1;
+            var nextQuestionId = $scope.quizRef.questionCount + 1;
             var questionRef = createdQuestRef.child('questions').child('question' + nextQuestionId);
             var questions = $firebase(questionRef);
             var newQuestion = { name: "question" + nextQuestionId, answerCount: 1,  answers: {"answer1": {"name":"answer1", "bomb": false}}};
             questions.$set(newQuestion);
-            quizRef.questionCount += 1;
-        }
+            $scope.quizRef.questionCount += 1;
     };
     $scope.addAnswer = function(questionName) {
         var newUrl = url + "/questions/" + questionName;
@@ -74,7 +51,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
         var questionRef = createdQuestRef.child('questions').child(questionName);
         var question = $firebase(questionRef);
         question.$remove();
-        quizRef.questionCount -= 1;
+        $scope.quizRef.questionCount -= 1;
     };
     $scope.focusEditBox = function () {
         var tb = document.getElementById('editbox');

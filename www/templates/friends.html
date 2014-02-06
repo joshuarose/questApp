@@ -1,4 +1,9 @@
-<div class="container mobilebody">
-    <h1>Friends</h1>
-    <button ng-click="goBack()">Back</button>
-</div>
+<view title="'Friends'" right-buttons="rightButtons">
+  <content has-header="true" padding="true">
+    <list>
+      <item ng-repeat="contact in contacts">
+       {{contact.name}} - {{contact.phone}}
+      </item>
+    </list>
+  </content>
+</view>

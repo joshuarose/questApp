@@ -1,6 +1,10 @@
 ﻿<view title="'Maker'">
     <content has-header="true" padding="true">
-        <input type="text" ng-model="quiz.name" placeholder="Enter survey name"/>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input ng-model="quiz.name" type="text" placeholder="Quest Name">
+        </label>
+      </div>
         <div>
             <ul>
                 <div
@@ -19,7 +23,7 @@
                                 blur="submit">{{ question.q || 'Tap to edit' }}</a>
                 <span
                         ng-click="removeQuestion(question.name)"
-                        class="glyphicon glyphicon-remove pull-right">
+                        class="ion-trash-a pull-right">
                 </span>
                     </div>
                     <br />
@@ -39,18 +43,18 @@
                                     blur="submit">{{ answer.a || 'Tap to edit' }}
                             </a>
                             <br/>
-                            <label for="{{answer}}">Correct<input id="{{answer}}" type="checkbox" ng-model="answer.bomb" class="pull-left" /></label>
+                            <label for="{{answer}}"><i class="ion-nuclear"></i><input id="{{answer}}" type="checkbox" ng-model="answer.bomb" class="pull-left" /></label>
                         </div>
                 <span
                         ng-click="removeAnswer(question.name, answer.name)"
-                        class="glyphicon glyphicon-remove pull-right">
+                        class="ion-trash-a pull-right">
                 </span>
                     </div>
                     <div
                             class="col-xs-8 col-xs-offset-4 adderstyle"
                             ng-click="addAnswer(question.name)">
                         <p class="addertext">Add Answer</p>
-                        <span class="glyphicon glyphicon-plus-sign pull-right"></span>
+                        <span class="ion-plus-round pull-right"></span>
                     </div>
                 </div>
                 <div
@@ -58,7 +62,7 @@
                         ng-click="addQuestion()">
                     <p
                             class="addertext">Add Question</p>
-                    <span class="glyphicon glyphicon-plus-sign pull-right"></span>
+                    <span class="ion-plus-round pull-right"></span>
                 </div>
             </ul>
         </div>
