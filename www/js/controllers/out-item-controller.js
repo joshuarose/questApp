@@ -1,8 +1,7 @@
 /**
  * Created by joshuarose on 1/7/14.
  */
-questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams, $firebase) {
-    var url = "https://bubblequizdb.firebaseio.com/users/" + userService.getCurrentUser().email.replace('.', "") + "/createdQuests/" + $stateParams.name;
+questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams) {
     var createdQuestRef = new Firebase(url);
     createdQuestRef.once("value", function (questCb) {
       var quest = questCb.val();

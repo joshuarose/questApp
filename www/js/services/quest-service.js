@@ -1,15 +1,23 @@
 /**
  * Created by joshuarose on 1/7/14.
  */
-questApp.factory('questService', ['$firebase','userService', '$firebaseAuth', function ($firebase, userService) {
+questApp.factory('questService', ['userService', function (userService) {
     var factory = {};
-    var url = "https://bubblequizdb.firebaseio.com/users/";
     var createdQuests = null;
 
     factory.init = function () {
       if (userService.loggedIn) {
-        url += userService.getCurrentUser().email.replace('.', "") + "/createdQuests";
-        createdQuests = $firebase(new Firebase(url));
+        var myQuests = Parse.Object.extend("Quest");
+        var query = new Parse.Query(myQuests);
+        query.equalTo("owner", userService.currentUser.get("username"));
+        query.find({
+          success: function (results) {
+            createdQuests = results;
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
       }
     };
 

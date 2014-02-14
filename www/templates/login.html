@@ -15,7 +15,7 @@
                 <input ng-model="password" type="password" placeholder="Password">
             </label>
         </div>
-        <h3 ng-show="loggedIn">Welcome back {{user.getEmail()}}!</h3>
+        <h3 ng-show="loggedIn">Welcome back {{user.get("username")}}!</h3>
         <ul ng-hide="loggedIn" class="list">
             <li class="item item-toggle">
                 New User

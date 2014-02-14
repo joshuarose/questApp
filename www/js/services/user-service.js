@@ -11,7 +11,7 @@ questApp.factory('userService', function ($location, $q) {
 
         Parse.User.logIn(username, password, {
           success: function (user) {
-            factory.currentUser =  user;
+            factory.currentUser =  Parse.User.current();
             factory.loggedIn = true;
             window.localStorage.setItem("user", JSON.stringify(user));
             deferred.resolve(user);
@@ -36,8 +36,7 @@ questApp.factory('userService', function ($location, $q) {
         user.signUp(null, {
           success: function (user) {
             // Hooray! Let them use the app now.
-            window.localStorage.setItem("user", JSON.stringify(user));
-            factory.currentUser =  JSON.parse(user);
+            factory.currentUser =  Parse.User.current();
             factory.loggedIn = true;
             deferred.resolve(user);
           },
@@ -51,23 +50,21 @@ questApp.factory('userService', function ($location, $q) {
     };
 
     factory.init = function () {
-        var storedUser = window.localStorage.getItem("user");
-        factory.currentUser =  JSON.parse(storedUser);
+        factory.currentUser =  Parse.User.current();
         if (factory.currentUser !== null) {
             factory.loggedIn = true;
         }
     };
 
     factory.logOut = function () {
-      window.localStorage.removeItem("user");
+      Parse.User.logOut();
       factory.currentUser =  null;
       factory.loggedIn = false;
     };
 
     factory.getCurrentUser = function () {
         if (!factory.currentUser) {
-            var storedUser = window.localStorage.getItem("user");
-            factory.currentUser =  JSON.parse(storedUser);
+            factory.currentUser =  Parse.User.current();
             if (factory.currentUser !== null) {
               factory.loggedIn = true;
             }
