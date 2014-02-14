@@ -1,4 +1,4 @@
-﻿var questApp = angular.module('questApp', ['ionic', 'firebase', 'xeditable']); //, 'ngTouch', 'ngAnimate', 'ngRoute'
+﻿var questApp = angular.module('questApp', ['ionic', 'xeditable']); //, 'ngTouch', 'ngAnimate', 'ngRoute'
 questApp.strict = function strict() {
     // Function-level strict mode syntax
     'use strict';

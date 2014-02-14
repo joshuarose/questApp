@@ -1,4 +1,4 @@
-questApp.controller('login-controller', function ($scope, $firebaseAuth, $firebase, userService) {
+questApp.controller('login-controller', function ($scope, userService) {
     $scope.error = "";
     $scope.email = "";
     $scope.password = "";
