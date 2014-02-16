@@ -58,8 +58,8 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('tabs.makername', {
-            url: "/maker/:name",
+        .state('tabs.makerid', {
+            url: "/maker/:id",
             views: {
                 'maker-tab' : {
                     templateUrl: "templates/out-item.html",

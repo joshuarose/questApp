@@ -1,8 +1,8 @@
 <view title="'Maker'" right-buttons="rightButtons">
     <content has-header="true" padding="true">
         <list>
-            <item ng-repeat="quiz in quizes" ui-sref="tabs.makername({name: quiz.get('Title')})">
-                {{quiz.get("Title")}}
+            <item ng-repeat="quest in quests" ui-sref="tabs.makerid({id: quest.id})">
+                {{quest.get("Title")}}
                 <i class="ion-plus-circled pull-right"></i>
             </item>
         </list>

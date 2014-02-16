@@ -1,11 +1,11 @@
 questApp.controller('out-list-controller', function ($scope, userService, questService, $state) {
-    $scope.quizes = "";
+    $scope.quests = "";
     $scope.loggedIn = false;
 
     $scope.init = function () {
       if (userService.loggedIn) {
         $scope.loggedIn = true;
-        $scope.quizes = questService.getQuizes(userService.getCurrentUser().email);
+        $scope.quests = questService.getQuests();
       }
       else {
         $state.go('tabs.login');
@@ -19,7 +19,7 @@ questApp.controller('out-list-controller', function ($scope, userService, questS
       type: "button-royal",
       content: "New Quest",
       tap : function (e) {
-        $state.go('tabs.makername', {name : createGuid()});
+        $state.go('tabs.makerid', {name : createGuid()});
       }
     }
   ];

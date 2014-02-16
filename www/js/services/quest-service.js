@@ -21,19 +21,18 @@ questApp.factory('questService', ['userService', function (userService) {
       }
     };
 
-    factory.getQuizes = function () {
+    factory.getQuests = function () {
         return createdQuests;
     };
-    factory.getQuiz = function (name) {
+    factory.getQuest = function (name) {
         currentQuiz = createdQuests.filter(function (quiz) {return (quiz.name === name); });
         return currentQuiz;
     };
-    factory.postQuiz = function (quiz) {
+    factory.postQuest = function (quiz) {
         questDb.update(quiz);
     };
     factory.deleteQuest = function (id) {
-        var quest = $firebase(createdQuestRef.child(id));
-        quest.$remove();
+        var questToDelete = Parse.Object.extend("Quest");
     };
 
     factory.init();

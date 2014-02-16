@@ -2,14 +2,14 @@
     <content has-header="true" padding="true">
       <div class="list list-inset">
         <label class="item item-input">
-          <input ng-model="quiz.name" type="text" placeholder="Quest Name">
+          <input ng-model="quest.get('Title')" type="text" placeholder="Quest Name">
         </label>
       </div>
         <div>
             <ul>
                 <div
                         class="col-xs-12 questionContainer"
-                        ng-repeat="question in quiz.questions">
+                        ng-repeat="question in quest.get('questions')">
                     <div Class="question">
                         <a
                                 class="question-text"
