@@ -7,19 +7,33 @@ questApp.factory('questService', ['userService', function (userService) {
 
     factory.init = function () {
       if (userService.loggedIn) {
-        var myQuests = Parse.Object.extend("Quest");
-        var query = new Parse.Query(myQuests);
-        query.equalTo("owner", userService.currentUser.get("username"));
-        query.find({
-          success: function (results) {
-            createdQuests = results;
-          },
-          error: function(error) {
-            alert("Error: " + error.code + " " + error.message);
-          }
-        });
+          var manager = new breeze.EntityManager('api/northwind');
+
+          var query = new breeze.EntityQuery()
+              .from("Employees");
+
+          manager.executeQuery(query).then(function(data){
+              $scope.results = data.results;
+              $scope.$apply();
+          }).fail(function(e) {
+              alert(e);
+          });
       }
     };
+
+    /*
+     var myQuests = Parse.Object.extend("Quest");
+     var query = new Parse.Query(myQuests);
+     query.equalTo("owner", userService.currentUser.get("username"));
+     query.find({
+     success: function (results) {
+     createdQuests = results;
+     },
+     error: function(error) {
+     alert("Error: " + error.code + " " + error.message);
+     }
+     });
+     */
 
     factory.getQuests = function () {
         return createdQuests;
