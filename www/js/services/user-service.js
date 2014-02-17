@@ -6,70 +6,86 @@ questApp.factory('userService', function ($location, $q) {
     factory.currentUser = null;
     factory.loggedIn = false;
 
-    factory.login = function (username, password) {
+    factory.login = function (un, pw) {
         var deferred = $q.defer();
 
-        Parse.User.logIn(username, password, {
-          success: function (user) {
-            factory.currentUser =  Parse.User.current();
+        dpd.login({
+          username: un,
+          password: pw
+        }, function (result, error) {
+            if (error){
+              alert("Error: " + error.code + " " + error.message);
+              deferred.reject(error);
+            }
+            factory.currentUser =  result;
             factory.loggedIn = true;
-            window.localStorage.setItem("user", JSON.stringify(user));
+            window.localStorage.setItem("user", JSON.stringify(result));
             deferred.resolve(user);
-          },
-          error: function (user, error) {
-            alert("Error: " + error.code + " " + error.message);
-            deferred.reject(error);
-          }
-        });
+          });
       return deferred.promise;
     };
 
-    factory.register = function (email, password, username, phone) {
-        var deferred = $q.defer();
+    factory.register = function (email, pw, un, phone) {
+      var deferred = $q.defer();
 
-        var user = new Parse.User();
-        user.set("username", username);
-        user.set("password", password);
-        user.set("email", email);
-        user.set("phone", phone);
+      dpd.users.post({
+        username: un,
+        password: pw,
+        email: email,
+        phone: phone
+      }, function(user, error) {
+        if (error) {
+          if (error.message) {
+            alert(message);
+          } else if (error.errors) {
+            var messages = '';
+            var errors = error.errors;
 
-        user.signUp(null, {
-          success: function (user) {
-            // Hooray! Let them use the app now.
-            factory.currentUser =  Parse.User.current();
-            factory.loggedIn = true;
-            deferred.resolve(user);
-          },
-          error: function (user, error) {
-            // Show the error message somewhere and let the user try again.
-            alert("Error: " + error.code + " " + error.message);
-            deferred.reject(error);
+            if (errors.username) {
+              messages += "Username " + errors.username + "\n";
+            }
+            if (errors.password) {
+              messages += "Password " + errors.password + "\n";
+            }
+
+            alert(messages);
           }
-        });
+        } else {
+          dpd.users.login({
+            username: un,
+            password: pw
+          }, function() {
+            location.href = $scope.referrer;
+          });
+        }
+      });
+
       return deferred.promise;
     };
 
     factory.init = function () {
-        factory.currentUser =  Parse.User.current();
-        if (factory.currentUser !== null) {
+        dpd.users.me(function(result, error) {
+          if (!error){
+            factory.currentUser =  result;
             factory.loggedIn = true;
-        }
+          }
+        });
     };
 
     factory.logOut = function () {
-      Parse.User.logOut();
-      factory.currentUser =  null;
-      factory.loggedIn = false;
+      dpd.users.logout(function(result, error) {
+        factory.currentUser =  null;
+        factory.loggedIn = false;
+      });
     };
 
     factory.getCurrentUser = function () {
         if (!factory.currentUser) {
-            factory.currentUser =  Parse.User.current();
-            if (factory.currentUser !== null) {
+            dpd.users.me(function(result, error) {
               factory.loggedIn = true;
-            }
+              return factory.currentUser;
+            });
         }
-        return factory.currentUser;
     };
     factory.init();
     return factory;
