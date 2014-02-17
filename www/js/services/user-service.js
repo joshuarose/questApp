@@ -9,7 +9,7 @@ questApp.factory('userService', function ($location, $q) {
     factory.login = function (un, pw) {
         var deferred = $q.defer();
 
-        dpd.login({
+        dpd.users.login({
           username: un,
           password: pw
         }, function (result, error) {
@@ -17,10 +17,13 @@ questApp.factory('userService', function ($location, $q) {
               alert("Error: " + error.code + " " + error.message);
               deferred.reject(error);
             }
-            factory.currentUser =  result;
-            factory.loggedIn = true;
-            window.localStorage.setItem("user", JSON.stringify(result));
-            deferred.resolve(user);
+            dpd('users').get('me', function(result, error) {
+              factory.currentUser = result;
+              factory.loggedIn = true;
+              window.localStorage.setItem("user", JSON.stringify(factory.currentUser));
+            });
+
+            deferred.resolve(result);
           });
       return deferred.promise;
     };
@@ -54,8 +57,17 @@ questApp.factory('userService', function ($location, $q) {
           dpd.users.login({
             username: un,
             password: pw
-          }, function() {
-            location.href = $scope.referrer;
+          }, function (result, error) {
+            if (error){
+              alert("Error: " + error.code + " " + error.message);
+              deferred.reject(error);
+            }
+            dpd('users').get('me', function(result, error) {
+              factory.currentUser = result;
+              factory.loggedIn = true;
+              window.localStorage.setItem("user", JSON.stringify(result));
+            });
+            deferred.resolve(result);
           });
         }
       });
@@ -83,6 +95,7 @@ questApp.factory('userService', function ($location, $q) {
         if (!factory.currentUser) {
             dpd.users.me(function(result, error) {
               factory.loggedIn = true;
+              factory.currentUser = result;
               return factory.currentUser;
             });
         }

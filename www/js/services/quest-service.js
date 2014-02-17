@@ -7,33 +7,14 @@ questApp.factory('questService', ['userService', function (userService) {
 
     factory.init = function () {
       if (userService.loggedIn) {
-          var manager = new breeze.EntityManager('api/northwind');
-
-          var query = new breeze.EntityQuery()
-              .from("Employees");
-
-          manager.executeQuery(query).then(function(data){
-              $scope.results = data.results;
-              $scope.$apply();
-          }).fail(function(e) {
-              alert(e);
-          });
+        dpd.quests.get(function(quests, error){
+         if (error){
+           alert(error);
+         }
+         createdQuests = quests;
+        });
       }
     };
-
-    /*
-     var myQuests = Parse.Object.extend("Quest");
-     var query = new Parse.Query(myQuests);
-     query.equalTo("owner", userService.currentUser.get("username"));
-     query.find({
-     success: function (results) {
-     createdQuests = results;
-     },
-     error: function(error) {
-     alert("Error: " + error.code + " " + error.message);
-     }
-     });
-     */
 
     factory.getQuests = function () {
         return createdQuests;
@@ -46,7 +27,7 @@ questApp.factory('questService', ['userService', function (userService) {
         questDb.update(quiz);
     };
     factory.deleteQuest = function (id) {
-        var questToDelete = Parse.Object.extend("Quest");
+        //delete things
     };
 
     factory.init();

@@ -2,7 +2,7 @@
     <content has-header="true" padding="true">
         <list>
             <item ng-repeat="quest in quests" ui-sref="tabs.makerid({id: quest.id})">
-                {{quest.get("Title")}}
+                {{quest.title}}
                 <i class="ion-plus-circled pull-right"></i>
             </item>
         </list>
