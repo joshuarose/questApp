@@ -2,27 +2,28 @@
     <content has-header="true" padding="true">
       <div class="list list-inset">
         <label class="item item-input">
-          <input ng-model="quest.get('Title')" type="text" placeholder="Quest Name">
+          <input ng-model="quest.title" type="text" ng-change="updateTitle()" placeholder="Quest Name">
         </label>
       </div>
         <div>
             <ul>
                 <div
                         class="col-xs-12 questionContainer"
-                        ng-repeat="question in quest.get('questions')">
+                        ng-repeat="question in questions">
                     <div Class="question">
                         <a
                                 class="question-text"
                                 href="#"
-                                editable-text="question.q"
+                                editable-text="question.text"
+                                onaftersave="update(question)"
                                 buttons="no"
                                 e-id="editbox"
                                 e-class="col-xs-12"
                                 onshow="focusEditBox()"
                                 e-placeholder="Enter question text"
-                                blur="submit">{{ question.q || 'Tap to edit' }}</a>
+                                blur="submit">{{ question.text || 'Tap to edit' }}</a>
                 <span
-                        ng-click="removeQuestion(question.name)"
+                        ng-click="removeQuestion(question.id)"
                         class="ion-trash-a pull-right">
                 </span>
                     </div>
@@ -35,24 +36,25 @@
                             <a
                                     class="pull-left"
                                     href="#"
-                                    editable-text="answer.a"
+                                    editable-text="answer.text"
+                                    onaftersave="update(question)"
                                     buttons="no"
                                     e-id="editbox"
                                     onshow="focusEditBox()"
                                     e-placeholder= "Enter answer text"
-                                    blur="submit">{{ answer.a || 'Tap to edit' }}
+                                    blur="submit">{{ answer.text || 'Tap to edit' }}
                             </a>
                             <br/>
                             <label for="{{answer}}"><i class="ion-nuclear"></i><input id="{{answer}}" type="checkbox" ng-model="answer.bomb" class="pull-left" /></label>
                         </div>
                 <span
-                        ng-click="removeAnswer(question.name, answer.name)"
+                        ng-click="removeAnswer(question, $index)"
                         class="ion-trash-a pull-right">
                 </span>
                     </div>
                     <div
                             class="col-xs-8 col-xs-offset-4 adderstyle"
-                            ng-click="addAnswer(question.name)">
+                            ng-click="addAnswer(question)">
                         <p class="addertext">Add Answer</p>
                         <span class="ion-plus-round pull-right"></span>
                     </div>

@@ -11,13 +11,13 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
         .state('tabs', {
             url: "/tab",
             abstract: true,
-            templateUrl: "templates/tabs.html"
+            templateUrl: "../templates/tabs.html"
         })
         .state('tabs.login', {
             url: "/login",
             views: {
                 'login-tab': {
-                    templateUrl: "templates/login.html",
+                    templateUrl: "../templates/login.html",
                     controller: 'login-controller'
                 }
             }
@@ -26,7 +26,7 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
             url: "/results",
             views: {
                 'results-tab': {
-                    templateUrl: "templates/results.html",
+                    templateUrl: "../templates/results.html",
                     controller: 'results-controller'
                 }
             }
@@ -35,7 +35,7 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
             url: "/taker",
             views: {
                 'taker-tab': {
-                    templateUrl: "templates/in-list.html",
+                    templateUrl: "../templates/in-list.html",
                     controller: 'in-list-controller'
                 }
             }
@@ -44,7 +44,7 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
             url: "/friends",
             views: {
                 'friends-tab' : {
-                    templateUrl: "templates/friends.html",
+                    templateUrl: "../templates/friends.html",
                     controller: 'friends-controller'
                 }
             }
@@ -53,7 +53,7 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
             url: "/maker",
             views: {
                 'maker-tab' : {
-                    templateUrl: "templates/out-list.html",
+                    templateUrl: "../templates/out-list.html",
                     controller: 'out-list-controller'
                 }
             }
@@ -62,7 +62,7 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
             url: "/maker/:id",
             views: {
                 'maker-tab' : {
-                    templateUrl: "templates/out-item.html",
+                    templateUrl: "../templates/out-item.html",
                     controller: "out-item-controller"
                 }
             }

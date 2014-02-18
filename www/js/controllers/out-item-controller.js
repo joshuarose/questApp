@@ -4,85 +4,90 @@
 questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams) {
 
     $scope.quest = null;
+    $scope.questions = null;
+
     $scope.addQuestion = function () {
-
+      dpd.questions.post({questid: $scope.quest.id,text:"Tap to edit", answers:[]}, function(result, error){
+        dpd.questions.get({questid: $scope.quest.id}, function(results, error){
+          if(error){
+            return;
+          }
+          $scope.questions = results;
+          $scope.$apply();
+        });
+      });
     };
 
-    $scope.addAnswer = function () {
-
+    $scope.update = function (question) {
+      dpd.questions.put(question.id, question, function(results, error){
+        $scope.$apply();
+      });
     };
 
-    $scope.removeAnswer = function() {
-
+    $scope.updateTitle = function () {
+      dpd.quests.put($scope.quest.id, $scope.quest, function(results, error){
+        $scope.$apply();
+      });
     };
 
-    $scope.removeQuestion = function() {
+    $scope.addAnswer = function (question) {
+      question.answers.push({"name": "newAnswer","text": "Tap to edit","bomb": false});
+      dpd.questions.put(question.id, question, function(result, error){
+        $scope.$apply();
+      });
+    };
 
+    $scope.removeAnswer = function(question , index) {
+      question.answers.splice(index, 1);
+      dpd.questions.put(question.id, question, function(result, error){
+        $scope.$apply();
+      });
+    };
+
+    $scope.removeQuestion = function(id) {
+      dpd.questions.del(id, function(result, error){
+        dpd.questions.get({questid: $scope.quest.id}, function(results, error){
+          if(error){
+            return;
+          }
+          $scope.questions = results;
+          $scope.$apply();
+        });
+      });
     };
 
     $scope.init = function() {
-      var questObj = Parse.Object.extend("Quest");
-      var query = new Parse.Query(questObj);
-      query.get($stateParams.id, {
-        success: function(returnedQuest) {
-          $scope.quest = returnedQuest;
-        },
-        error: function(object, error) {
-          alert(error.message);
+      $scope.quest = null;
+      $scope.questions = null;
+
+      dpd.quests.get({id: $stateParams.id}, function(results, error) {
+        if(error){
+          return;
         }
+        $scope.quest = results;
+        $scope.$apply();
       });
+      dpd.questions.get({questid: $stateParams.id}, function(results, error){
+        if(error){
+          return;
+        }
+        $scope.questions = results;
+        $scope.$apply();
+      });
+
+      if ($scope.quest === null){
+        dpd.quests.post({title:"New Quest", owner:userService.currentUser.username}, function(quest, error){
+          $scope.quest = quest;
+          dpd.questions.post({questid: quest.id,text:"Tap to edit", answers:[]}, function(result, error){
+            dpd.questions.get({questid: quest.id}, function(questions, error){
+              $scope.questions = questions;
+              $scope.$apply();
+            });
+          });
+        });
+      }
     };
-//    var url = "https://bubblequizdb.firebaseio.com/users/" + userService.getCurrentUser().email.replace('.', "") + "/createdQuests/" + $stateParams.name;
-//    var createdQuestRef = new Firebase(url);
-//    createdQuestRef.once("value", function (questCb) {
-//      var quest = questCb.val();
-//      if (quest === null || quest.questionCount === undefined) {
-//        createdQuestRef.set({name: "new quiz", questionCount: 1, questions: { question1: { name: "question1", answerCount: 1,  answers: {"answer1": {"name" : "answer1", "bomb" : false}}}}});
-//      }
-//    });
-//
-//    $scope.quizRef = $firebase(createdQuestRef);
-//    $scope.quizRef.$bind($scope, 'quiz');
-//
-//    $scope.addQuestion = function () {
-//            var nextQuestionId = $scope.quizRef.questionCount + 1;
-//            var questionRef = createdQuestRef.child('questions').child('question' + nextQuestionId);
-//            var questions = $firebase(questionRef);
-//            var newQuestion = { name: "question" + nextQuestionId, answerCount: 1,  answers: {"answer1": {"name":"answer1", "bomb": false}}};
-//            questions.$set(newQuestion);
-//            $scope.quizRef.questionCount += 1;
-//    };
-//    $scope.addAnswer = function(questionName) {
-//        var newUrl = url + "/questions/" + questionName;
-//        var questionRef = new Firebase(newUrl);
-//        questionRef.once("value", function (questionCb) {
-//            var question = questionCb.val();
-//            question.answerCount += 1;
-//            questionRef.update(question);
-//            var answerRef = createdQuestRef.child('questions').child(questionName).child('answers').child('answer' + question.answerCount);
-//            var answer = $firebase(answerRef);
-//            var newAnswer = {"name": "answer" + question.answerCount, "bomb": false};
-//            answer.$set(newAnswer);
-//        });
-//    };
-//    $scope.removeAnswer = function (questionName, answerName) {
-//        var answerRef = createdQuestRef.child('questions').child(questionName).child('answers').child(answerName);
-//        var answer = $firebase(answerRef);
-//        answer.$remove();
-//        var newUrl = url + "/questions/" + questionName;
-//        var questionRef = new Firebase(newUrl);
-//        questionRef.once("value", function (questionCb) {
-//            var question = questionCb.val();
-//            question.answerCount -= 1;
-//            questionRef.update(question);
-//        });
-//    };
-//    $scope.removeQuestion = function(questionName) {
-//        var questionRef = createdQuestRef.child('questions').child(questionName);
-//        var question = $firebase(questionRef);
-//        question.$remove();
-//        $scope.quizRef.questionCount -= 1;
-//    };
+
     $scope.focusEditBox = function () {
         var tb = document.getElementById('editbox');
         tb.focus();

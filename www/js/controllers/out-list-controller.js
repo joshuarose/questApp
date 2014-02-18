@@ -1,26 +1,16 @@
-questApp.controller('out-list-controller', function ($scope, userService, questService, $state) {
+questApp.controller('out-list-controller', function ($scope, userService, $state) {
     $scope.quests = "";
     $scope.loggedIn = false;
-    var dataService = new breeze.DataService({
-      serviceName: "https://quest.openspacedev.com:5000/",
-      hasServerMetadata: false
-    });
-    var manager = new breeze.EntityManager({dataService: dataService});
-
-
 
     $scope.init = function () {
       if (userService.loggedIn) {
         $scope.loggedIn = true;
-        var query = new breeze.EntityQuery()
-          .from("quests")
-          .where("owner", "eq", userService.currentUser.username);
-
-        manager.executeQuery(query).then(function(data){
-          $scope.quests = data.results;
+        dpd.quests.get({owner: userService.currentUser.username}, function(results, error) {
+          if(error){
+            return;
+          }
+          $scope.quests = results;
           $scope.$apply();
-        }).fail(function(e) {
-          alert(e);
         });
       }
       else {
@@ -35,7 +25,7 @@ questApp.controller('out-list-controller', function ($scope, userService, questS
       type: "button-royal",
       content: "New Quest",
       tap : function (e) {
-        $state.go('tabs.makerid', {name : createGuid()});
+        $state.go('tabs.makerid', {id : createGuid()});
       }
     }
   ];
