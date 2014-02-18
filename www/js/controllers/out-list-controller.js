@@ -14,7 +14,7 @@ questApp.controller('out-list-controller', function ($scope, userService, questS
         $scope.loggedIn = true;
         var query = new breeze.EntityQuery()
           .from("quests")
-          //.where("owner", "eq", userService.currentUser.username);
+          .where("owner", "eq", userService.currentUser.username);
 
         manager.executeQuery(query).then(function(data){
           $scope.quests = data.results;
