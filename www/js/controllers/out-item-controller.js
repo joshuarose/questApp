@@ -31,23 +31,23 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.addAnswer = function (question) {
-      question.answers.push({"name": "newAnswer","text": "Tap to edit","bomb": false});
-      dpd.questions.put(question.id, question, function(result, error){
+      question.answers.push({"name": "newAnswer", "text": "Tap to edit", "bomb": false});
+      dpd.questions.put(question.id, question, function (result, error) {
         $scope.$apply();
       });
     };
 
-    $scope.removeAnswer = function(question , index) {
+    $scope.removeAnswer = function (question, index) {
       question.answers.splice(index, 1);
       dpd.questions.put(question.id, question, function(result, error){
         $scope.$apply();
       });
     };
 
-    $scope.removeQuestion = function(id) {
-      dpd.questions.del(id, function(result, error){
-        dpd.questions.get({questid: $scope.quest.id}, function(results, error){
-          if(error){
+    $scope.removeQuestion = function (id) {
+      dpd.questions.del(id, function(result, error) {
+        dpd.questions.get({questid: $scope.quest.id}, function (results, error) {
+          if (error) {
             return;
           }
           $scope.questions = results;
@@ -56,36 +56,34 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       });
     };
 
-    $scope.init = function() {
+    $scope.init = function () {
       $scope.quest = null;
       $scope.questions = null;
 
-      dpd.quests.get({id: $stateParams.id}, function(results, error) {
-        if(error){
-          return;
-        }
+      dpd.quests.get({id: $stateParams.id}, function (results, error) {
         $scope.quest = results;
+        if ($scope.quest === null) {
+            dpd.quests.post({title: "New Quest", owner: userService.currentUser.username}, function (quest, error) {
+                $scope.quest = quest;
+                dpd.questions.post({questid: quest.id,text:"Tap to edit", answers:[]}, function (result, error) {
+                    dpd.questions.get({questid: quest.id}, function(questions, error){
+                        $scope.questions = questions;
+                        $scope.$apply();
+                    });
+                });
+            });
+        }
         $scope.$apply();
       });
-      dpd.questions.get({questid: $stateParams.id}, function(results, error){
-        if(error){
+      dpd.questions.get({questid: $stateParams.id}, function (results, error) {
+        if (error) {
           return;
         }
         $scope.questions = results;
         $scope.$apply();
       });
 
-      if ($scope.quest === null){
-        dpd.quests.post({title:"New Quest", owner:userService.currentUser.username}, function(quest, error){
-          $scope.quest = quest;
-          dpd.questions.post({questid: quest.id,text:"Tap to edit", answers:[]}, function(result, error){
-            dpd.questions.get({questid: quest.id}, function(questions, error){
-              $scope.questions = questions;
-              $scope.$apply();
-            });
-          });
-        });
-      }
+
     };
 
     $scope.focusEditBox = function () {
