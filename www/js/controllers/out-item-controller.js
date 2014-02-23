@@ -1,7 +1,7 @@
 /**
  * Created by joshuarose on 1/7/14.
  */
-questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams) {
+questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams, $state) {
 
     $scope.quest = null;
     $scope.questions = null;
@@ -55,6 +55,16 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
         });
       });
     };
+
+    $scope.rightButtons = [
+      {
+        type: "button-royal",
+        content: "Send",
+        tap : function (e) {
+          $state.go('tabs.send', {id : $scope.quest.id});
+        }
+      }
+    ];
 
     $scope.init = function () {
       $scope.quest = null;

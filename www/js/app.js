@@ -40,6 +40,15 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+      .state('tabs.takerid', {
+        url: "/taker/:id",
+        views: {
+          'maker-tab' : {
+            templateUrl: "../templates/out-item.html",
+            controller: "out-item-controller"
+          }
+        }
+      })
         .state('tabs.friends', {
             url: "/friends",
             views: {
@@ -66,7 +75,17 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
                     controller: "out-item-controller"
                 }
             }
+        })
+        .state('tabs.send', {
+          url: "/send/:id",
+          views: {
+            'maker-tab' : {
+              templateUrl: "../templates/send.html",
+              controller: "send-controller"
+            }
+          }
         });
+
 
     // if none of the above are matched, go to this one
     $urlRouterProvider.otherwise("tab/login");

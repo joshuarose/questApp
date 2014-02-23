@@ -1,5 +1,10 @@
 <view title="'Taker'">
     <content has-header="true" padding="true">
-        <h1>To be implemented</h1>
+      <list>
+        <item ng-repeat="quest in quests">
+          {{quest.title}}
+          <i class="ion-plus-circled pull-right"></i>
+        </item>
+      </list>
     </content>
 </view>
