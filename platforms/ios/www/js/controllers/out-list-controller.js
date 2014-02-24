@@ -25,7 +25,7 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
       type: "button-royal",
       content: "New Quest",
       tap : function (e) {
-        $state.go('tabs.makerid', {id : createGuid()});
+        $state.go('tab.makerid', {id : createGuid()});
       }
     }
   ];
