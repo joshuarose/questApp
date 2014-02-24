@@ -1,3 +1,15 @@
-Quest App V0.1  By:OpenSpaceApps
-===============================================
-Built with: Ionic Framework and Cordova
+Quest-App
+==========================
+
+Cordova/Phonegap application to send quests to your friends and vent,dig,flirt, or challenege them.
+
+Stack:
+Ionic-Framework
+AngularJS
+
+BackEnd:
+Deployd
+MongoDb
+NodeJS
+
+- [Ionic Tutorials](http://ionicframework.com/tutorials/)
