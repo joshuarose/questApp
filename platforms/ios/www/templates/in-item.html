@@ -1,8 +1,29 @@
 <ion-view title="'Taker'" right-buttons="rightButtons">
   <ion-content has-header="true" padding="true">
-        {{activeQuestion.text}}
-        <div ng-repeat="answer in activeQuestion.answers">
-          <p>{{answer.text}}</p>
-        </div>
+    <div class="col-xs-12 questionContainer">
+      <div class="question"><p class="question-text">{{activeQuestion.text}}</p></div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div ng-repeat="answer in activeQuestion.answers" class="col-xs-8 col-xs-offset-4 answerContainer">
+      <div class="answer" ng-click="selectAnswer(answer)" ng-class="{true: 'selected', false: 'correct'}[answer.selected]">
+        <p class="answer-text">{{answer.text}}</p>
+        <br />
+      </div>
+      <br />
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <button ng-show="selected" class="col-xs-12 button button-royal pull-right" ng-click="getNextQuestion()">
+      Confirm
+    </button>
+
   </ion-content>
 </ion-view>

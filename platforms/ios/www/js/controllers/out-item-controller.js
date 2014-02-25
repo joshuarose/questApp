@@ -97,9 +97,10 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.focusEditBox = function () {
-//        document.activeElement.blur();
-//        //var tb = document.getElementById('editbox');
-//        $('#editbox').blur().delay(20).focus();
+      //Setting the config.xml preference <preference name="KeyboardDisplayRequiresUserAction" value="false" /> negates the need for this
+      //        document.activeElement.blur();
+      //        //var tb = document.getElementById('editbox');
+      //        $('#editbox').blur().delay(20).focus();
 
     };
 
