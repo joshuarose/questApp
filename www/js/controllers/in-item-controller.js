@@ -1,7 +1,7 @@
 /**
  * Created by joshuarose on 2/24/14.
  */
-questApp.controller('in-item-controller', function($scope, userService, $stateParams, $state){
+questApp.controller('in-item-controller', function($scope, userService, $stateParams, $state, $rootScope){
   $scope.quest = {};
   $scope.questions = [];
   $scope.activeQuestion = {};
@@ -31,6 +31,17 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
     var result = {question: $scope.activeQuestion.text, answer: $scope.activeAnswer};
 
     resultCollection.answers.push(result);
+  };
+
+  $scope.finishQuest = function () {
+    $rootScope.$viewHistory = {
+      histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
+      backView: null,
+      forwardView: null,
+      currentView: null,
+      disabledRegistrableTagNames: []
+    };
+    $state.go('tab.taker', {location: 'replace'});
   };
 
   $scope.selectAnswer = function (answer) {

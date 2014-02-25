@@ -37,7 +37,7 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/results",
       views: {
         'results-tab': {
-          templateUrl: "templates/results.html",
+          templateUrl: "templates/results-list.html",
           controller: 'results-controller'
         }
       }

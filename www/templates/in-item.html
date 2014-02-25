@@ -1,4 +1,4 @@
-<ion-view title="'Taker'" right-buttons="rightButtons">
+<ion-view title="'Taker'" right-buttons="rightButtons" hide-back-button="true" back-button-label="">
   <ion-content has-header="true" padding="true">
     <div class="reveal" ng-show="reveal">This quest brought to you by : {{quest.owner}}</div>
     <div ng-hide="reveal">
@@ -27,6 +27,15 @@
         Confirm
       </button>
     </div>
+    <div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+    <button ng-show="reveal" class="col-xs-12 button button-royal pull-right" ng-click="finishQuest()">
+      Finish
+    </button>
 
   </ion-content>
 </ion-view>
