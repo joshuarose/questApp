@@ -21,9 +21,8 @@ questApp.factory('userService', function ($location, $q) {
               factory.currentUser = result;
               factory.loggedIn = true;
               window.localStorage.setItem("user", JSON.stringify(factory.currentUser));
+              deferred.resolve(result);
             });
-
-            deferred.resolve(result);
           });
       return deferred.promise;
     };
@@ -66,8 +65,8 @@ questApp.factory('userService', function ($location, $q) {
               factory.currentUser = result;
               factory.loggedIn = true;
               window.localStorage.setItem("user", JSON.stringify(result));
+              deferred.resolve(result);
             });
-            deferred.resolve(result);
           });
         }
       });
@@ -76,28 +75,29 @@ questApp.factory('userService', function ($location, $q) {
     };
 
     factory.init = function () {
-        dpd.users.me(function(result, error) {
-          if (!error){
-            factory.currentUser =  result;
-            factory.loggedIn = true;
-          }
-        });
+      var user = JSON.parse(window.localStorage.getItem("user"));
+      if (user !== null && user !== undefined){
+        factory.currentUser =  user;
+        factory.loggedIn = true;
+      }
+      else{
+        factory.currentUser = null;
+        factory.loggedIn = false;
+      }
     };
 
     factory.logOut = function () {
+      var user = window.localStorage.removeItem("user");
+      factory.currentUser =  null;
+      factory.loggedIn = false;
       dpd.users.logout(function(result, error) {
-        factory.currentUser =  null;
-        factory.loggedIn = false;
+
       });
     };
 
     factory.getCurrentUser = function () {
-        if (!factory.currentUser) {
-            dpd.users.me(function(result, error) {
-              factory.loggedIn = true;
-              factory.currentUser = result;
-              return factory.currentUser;
-            });
+        if (factory.currentUser !== null && factory.currentUser !== undefined) {
+            return factory.currentUser;
         }
     };
     factory.init();
