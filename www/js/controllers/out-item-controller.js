@@ -97,14 +97,11 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.focusEditBox = function () {
-      //The latest version seems to resolve this, needs to be tested on apple and android devices
-//        var tb = document.getElementById('editbox');
-//        if (tb.value === "Tap to edit"){
-//          tb.value = "";
-//        }
-//        tb.scroll = tb.maxScroll;
-//        tb.scrollTop = tb.scrollHeight;
-//        tb.focus();
+      //Setting the config.xml preference <preference name="KeyboardDisplayRequiresUserAction" value="false" /> negates the need for this
+      //        document.activeElement.blur();
+      //        //var tb = document.getElementById('editbox');
+      //        $('#editbox').blur().delay(20).focus();
+
     };
 
     $scope.init();
