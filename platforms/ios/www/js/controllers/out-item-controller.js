@@ -7,7 +7,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     $scope.questions = null;
 
     $scope.addQuestion = function () {
-      dpd.questions.post({questid: $scope.quest.id,text:"Tap to edit", answers:[]}, function(result, error){
+      dpd.questions.post({questid: $scope.quest.id,text:"", answers:[]}, function(result, error){
         dpd.questions.get({questid: $scope.quest.id}, function(results, error){
           if(error){
             return;
@@ -31,7 +31,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.addAnswer = function (question) {
-      question.answers.push({"name": "newAnswer", "text": "Tap to edit", "bomb": false});
+      question.answers.push({"name": "newAnswer", "text": "", "bomb": false});
       dpd.questions.put(question.id, question, function (result, error) {
         $scope.$apply();
       });
@@ -75,7 +75,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
         if ($scope.quest === null) {
             dpd.quests.post({title: "New Quest", owner: userService.currentUser.username}, function (quest, error) {
                 $scope.quest = quest;
-                dpd.questions.post({questid: quest.id,text:"Tap to edit", answers:[]}, function (result, error) {
+                dpd.questions.post({questid: quest.id,text:"", answers:[]}, function (result, error) {
                     dpd.questions.get({questid: quest.id}, function(questions, error){
                         $scope.questions = questions;
                         $scope.$apply();
@@ -97,10 +97,14 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.focusEditBox = function () {
-        var tb = document.getElementById('editbox');
-        tb.focus();
-        tb.scroll = tb.maxScroll;
-        tb.scrollTop = tb.scrollHeight;
+      //The latest version seems to resolve this, needs to be tested on apple and android devices
+//        var tb = document.getElementById('editbox');
+//        if (tb.value === "Tap to edit"){
+//          tb.value = "";
+//        }
+//        tb.scroll = tb.maxScroll;
+//        tb.scrollTop = tb.scrollHeight;
+//        tb.focus();
     };
 
     $scope.init();

@@ -27,7 +27,9 @@
                 </label>
             </li>
         </ul>
-        <button ng-hide="newUser || loggedIn" class="button button-block button-royal" ng-click="login(username, password)">Login</button>
-        <button ng-show="newUser" class="button button-block button-royal" ng-click="register(email, password, username, phone)">Register</button>
+        <div ng-hide="loggedIn">
+          <button ng-hide="newUser || loggedIn" class="button button-block button-royal" ng-click="login(username, password)">Login</button>
+          <button ng-show="newUser" class="button button-block button-royal" ng-click="register(email, password, username, phone)">Register</button>
+        </div>
     </ion-content>
 </ion-view>
