@@ -71,6 +71,14 @@ a.editable-click:hover {
     font-weight: bolder;
 }
 
+.answer-text {
+    padding-left : 25px;
+    padding-top : 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
 .adderstyle {
     background-color: #cbcbd0;
     border-radius: 5px;
@@ -93,6 +101,14 @@ a.editable-click:hover {
 }
 .incorrect {
     background-color: #f49ac2;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.selected {
+    background-color: #77DD77;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;

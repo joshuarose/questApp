@@ -5,9 +5,28 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   $scope.quest = {};
   $scope.questions = [];
   $scope.activeQuestion = {};
+  $scope.selected = false;
 
   $scope.getNextQuestion = function () {
     $scope.activeQuestion = $scope.questions.splice(0, 1)[0];
+  };
+
+  $scope.selectAnswer = function (answer) {
+    if (!$scope.selected){
+      $scope.selected = true;
+      answer.selected = true;
+    }
+    else{
+      for(var i = 0; i < $scope.activeQuestion.answers.length; i++){
+        $scope.activeQuestion.answers[i].selected = false;
+      }
+      $scope.selected = true;
+      answer.selected = true;
+    }
+  };
+
+  $scope.clearSelection = function () {
+
   };
 
   $scope.init = function () {
@@ -26,6 +45,10 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       }
 
       $scope.activeQuestion = $scope.questions.splice(0, 1)[0];
+
+      for(var i = 0; i < $scope.activeQuestion.answers.length; i++){
+        $scope.activeQuestion.answers[i].selected = false;
+      }
 
       $scope.$apply();
     });
