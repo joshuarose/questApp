@@ -17,4 +17,5 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+    <icon src="icon.png" />
 </widget>
