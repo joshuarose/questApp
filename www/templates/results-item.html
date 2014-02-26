@@ -1,5 +1,9 @@
 <ion-view title="'Result'" hide-back-button="true" back-button-label="">
   <ion-content has-header="true" padding="true">
+    <div
+      class="col-xs-8 adderstyle">
+      <p class="biggertext pull-left">{{result.questtitle}} - {{result.taker}}</p>
+    </div>
     <div ng-repeat="res in result.answers">
       <div class="col-xs-12 questionContainer" >
         <div class="question"><p class="question-text">{{res.question}}</p></div>
@@ -9,6 +13,7 @@
       <br/>
       <br/>
       <div class="col-xs-8 col-xs-offset-4 answerContainer">
+        <br />
         <div class="answer correct" ng-click="selectAnswer(answer)">
           <p class="answer-text">{{res.answer}}</p>
           <br />
