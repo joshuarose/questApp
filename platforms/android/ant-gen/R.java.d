@@ -8,7 +8,6 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/res/values/strings.xml \
 /Users/joshuarose/Documents/source/questApp/platforms/android/res/xml/config.xml \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/res/drawable/ic_launcher.png \
-/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/res/drawable/icon.png \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/res/drawable-hdpi/ic_launcher.png \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/res/drawable-ldpi/ic_launcher.png \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/res/drawable-mdpi/ic_launcher.png \
