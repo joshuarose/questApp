@@ -25,6 +25,16 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
     }
   };
 
+  $scope.leftButtons = [
+    {
+      type: 'button-royal',
+      content: 'Abandon',
+      tap: function(e) {
+        alert("Abandon all hope, ye who enter here.");
+      }
+    }
+  ];
+
   $scope.addResult  = function () {
     if (resultCollection === null) {
       resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : []};
