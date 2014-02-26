@@ -38,7 +38,16 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'results-tab': {
           templateUrl: "templates/results-list.html",
-          controller: 'results-controller'
+          controller: 'results-list-controller'
+        }
+      }
+    })
+    .state('tab.resultsid', {
+      url: "/results/:id",
+      views: {
+        'results-tab': {
+          templateUrl: "templates/results-item.html",
+          controller: 'results-item-controller'
         }
       }
     })
@@ -87,34 +96,6 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
-
-//    .state('tab.pet-detail', {
-//      url: '/pet/:petId',
-//      views: {
-//        'pets-tab': {
-//          templateUrl: 'templates/pet-detail.html',
-//          controller: 'PetDetailCtrl'
-//        }
-//      }
-//    })
-//
-//    .state('tab.adopt', {
-//      url: '/adopt',
-//      views: {
-//        'adopt-tab': {
-//          templateUrl: 'templates/adopt.html'
-//        }
-//      }
-//    })
-//
-//    .state('tab.about', {
-//      url: '/about',
-//      views: {
-//        'about-tab': {
-//          templateUrl: 'templates/about.html'
-//        }
-//      }
-//    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/login');

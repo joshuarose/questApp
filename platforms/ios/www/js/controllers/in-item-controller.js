@@ -1,32 +1,69 @@
 /**
  * Created by joshuarose on 2/24/14.
  */
-questApp.controller('in-item-controller', function($scope, userService, $stateParams, $state){
+questApp.controller('in-item-controller', function($scope, userService, $stateParams, $state, $rootScope){
   $scope.quest = {};
   $scope.questions = [];
   $scope.activeQuestion = {};
   $scope.selected = false;
+  $scope.activeAnswer = "";
+  $scope.reveal = false;
+  var resultCollection = null;
 
   $scope.getNextQuestion = function () {
-    $scope.activeQuestion = $scope.questions.splice(0, 1)[0];
+    if($scope.questions.length > 0){
+      $scope.addResult();
+      $scope.activeQuestion = $scope.questions.splice(0, 1)[0];
+      $scope.clearSelection();
+    }
+    else{
+      $scope.addResult();
+      dpd.results.post(resultCollection, function(results, error){
+        $scope.reveal = true;
+        $scope.$apply();
+      });
+    }
+  };
+
+  $scope.addResult  = function () {
+    if (resultCollection === null) {
+      resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : []};
+    }
+    var result = {question: $scope.activeQuestion.text, answer: $scope.activeAnswer};
+
+    resultCollection.answers.push(result);
+  };
+
+  $scope.finishQuest = function () {
+    $rootScope.$viewHistory = {
+      histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
+      backView: null,
+      forwardView: null,
+      currentView: null,
+      disabledRegistrableTagNames: []
+    };
+    $state.go('tab.taker', {location: 'replace'});
   };
 
   $scope.selectAnswer = function (answer) {
     if (!$scope.selected){
       $scope.selected = true;
+      $scope.activeAnswer = answer.text;
       answer.selected = true;
     }
     else{
-      for(var i = 0; i < $scope.activeQuestion.answers.length; i++){
-        $scope.activeQuestion.answers[i].selected = false;
-      }
+      $scope.clearSelection();
       $scope.selected = true;
+      $scope.activeAnswer = answer.text;
       answer.selected = true;
     }
   };
 
   $scope.clearSelection = function () {
-
+    $scope.selected = false;
+    for(var i = 0; i < $scope.activeQuestion.answers.length; i++){
+      $scope.activeQuestion.answers[i].selected = false;
+    }
   };
 
   $scope.init = function () {
@@ -46,9 +83,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
 
       $scope.activeQuestion = $scope.questions.splice(0, 1)[0];
 
-      for(var i = 0; i < $scope.activeQuestion.answers.length; i++){
-        $scope.activeQuestion.answers[i].selected = false;
-      }
+      $scope.clearSelection();
 
       $scope.$apply();
     });
