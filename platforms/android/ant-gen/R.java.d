@@ -1,4 +1,4 @@
-/Users/joshuarose/Documents/source/questApp/platforms/android/ant-gen/com/openspaceapps/quest/R.java \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-gen/com/openspace/quest/R.java \
  : /Users/joshuarose/Documents/source/questApp/platforms/android/res/drawable/ic_launcher.png \
 /Users/joshuarose/Documents/source/questApp/platforms/android/res/drawable-hdpi/ic_launcher.png \
 /Users/joshuarose/Documents/source/questApp/platforms/android/res/drawable-ldpi/ic_launcher.png \

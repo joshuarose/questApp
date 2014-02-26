@@ -1,0 +1,158 @@
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 22.3.0
+ [checkenv] Installed at /development/adt-bundle-mac-x86_64-20131030/sdk
+
+-setup:
+     [echo] Project Name: QuestApp
+  [gettype] Project Type: Application
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 19.0.0
+     [echo] Resolving Build Target for QuestApp...
+[gettarget] Project Target:   Android 4.4
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/bin
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/bin/res
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/bin/rsObj
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/bin/rsLibs
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/gen
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/bin/classes
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/bin/dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for QuestApp...
+[dependency] Library dependencies:
+[dependency] 
+[dependency] ------------------
+[dependency] Ordered libraries:
+[dependency] 
+[dependency] ------------------
+     [echo] ----------
+     [echo] Building Libraries with 'release'...
+
+nodeps:
+
+-set-mode-check:
+
+-set-release-mode:
+
+-release-obfuscation-check:
+     [echo] proguard.config is ${proguard.config}
+
+-pre-build:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 22.3.0
+ [checkenv] Installed at /development/adt-bundle-mac-x86_64-20131030/sdk
+
+-setup:
+     [echo] Project Name: CordovaLib
+  [gettype] Project Type: Android Library
+
+-build-setup:
+[getbuildtools] Using latest Build Tools: 19.0.0
+     [echo] Resolving Build Target for CordovaLib...
+[gettarget] Project Target:   Android 4.4
+[gettarget] API level:        19
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/res
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/rsObj
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/rsLibs
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/gen
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/classes
+    [mkdir] Created dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for CordovaLib...
+[dependency] Library dependencies:
+[dependency] No Libraries
+[dependency] 
+[dependency] ------------------
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 89 source files to /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+     [echo] Creating library output jar file...
+      [jar] Building jar: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/classes.jar
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/res
+   [crunch] To destination dir: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-release-prompt-for-password:
+
+-release-nosign:
+     [echo] 
+[propertyfile] Creating new property file: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/build.prop
+[propertyfile] Updating property file: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/build.prop
+[propertyfile] Updating property file: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/build.prop
+[propertyfile] Updating property file: /Users/joshuarose/Documents/source/questApp/platforms/android/CordovaLib/bin/build.prop
+
+-release-sign:
+
+-post-build:
+
+release:
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [aapt] /Users/joshuarose/Documents/source/questApp/platforms/android/res/xml/config.xml:14: error: Error parsing XML: unbound prefix
+
+BUILD FAILED
+/development/adt-bundle-mac-x86_64-20131030/sdk/tools/ant/build.xml:653: The following error occurred while executing this line:
+/development/adt-bundle-mac-x86_64-20131030/sdk/tools/ant/build.xml:698: null returned: 1
+
+Total time: 3 seconds
