@@ -12,7 +12,7 @@
       <br />
 
       <div ng-repeat="answer in activeQuestion.answers" class="col-xs-8 col-xs-offset-4 answerContainer">
-        <div class="answer" ng-click="selectAnswer(answer)" ng-class="{true: 'selected', false: 'correct'}[answer.selected]">
+        <div class="answer" ng-click="selectAnswer(answer)" ng-class="{true: 'selected', false: 'nobomb'}[answer.selected]">
           <p class="answer-text">{{answer.text}}</p>
           <br />
         </div>
