@@ -17,6 +17,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       $scope.clearSelection();
     }
     else{
+      $scope.addResult();
       dpd.results.post(resultCollection, function(results, error){
         $scope.reveal = true;
         $scope.$apply();

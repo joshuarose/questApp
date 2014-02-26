@@ -5,9 +5,6 @@ questApp.controller('results-list-controller', function($scope, userService) {
   $scope.results = "";
   $scope.loggedIn = false;
 
-    $scope.goBack = function(){
-    };
-
   $scope.init = function () {
     if (userService.loggedIn) {
       $scope.loggedIn = true;

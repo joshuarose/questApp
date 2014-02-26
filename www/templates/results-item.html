@@ -1,4 +1,20 @@
 <ion-view title="'Result'" hide-back-button="true" back-button-label="">
   <ion-content has-header="true" padding="true">
+    <div ng-repeat="res in result.answers">
+      <div class="col-xs-12 questionContainer" >
+        <div class="question"><p class="question-text">{{res.question}}</p></div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="col-xs-8 col-xs-offset-4 answerContainer">
+        <div class="answer correct" ng-click="selectAnswer(answer)">
+          <p class="answer-text">{{res.answer}}</p>
+          <br />
+        </div>
+        <br />
+      </div>
+    </div>
   </ion-content>
 </ion-view>
