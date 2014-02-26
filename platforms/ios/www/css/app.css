@@ -91,6 +91,11 @@ a.editable-click:hover {
     color: #ffffff;
     font-weight: bolder;
 }
+.biggertext {
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 2.0em;
+}
 .correct {
     background-color: #a2d4ff;
     border-radius: 5px;
