@@ -7,7 +7,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     $scope.questions = null;
 
     $scope.addQuestion = function () {
-      dpd.questions.post({questid: $scope.quest.id,text:"", answers:[]}, function(result, error){
+      dpd.questions.post({questid: $scope.quest.id,text:"", answers:[], creationtime: Date.now()}, function(result, error){
         dpd.questions.get({questid: $scope.quest.id}, function(results, error){
           if(error){
             return;
@@ -31,7 +31,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.addAnswer = function (question) {
-      question.answers.push({"name": "newAnswer", "text": "", "bomb": false});
+      question.answers.push({"name": "newAnswer", "text": "", "bomb": false, creationtime : Date.now()});
       dpd.questions.put(question.id, question, function (result, error) {
         $scope.$apply();
       });
@@ -75,7 +75,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
         if ($scope.quest === null) {
             dpd.quests.post({title: "New Quest", owner: userService.currentUser.username}, function (quest, error) {
                 $scope.quest = quest;
-                dpd.questions.post({questid: quest.id,text:"", answers:[]}, function (result, error) {
+                dpd.questions.post({questid: quest.id,text:"", answers:[], creationtime : Date.now()}, function (result, error) {
                     dpd.questions.get({questid: quest.id}, function(questions, error){
                         $scope.questions = questions;
                         $scope.$apply();
