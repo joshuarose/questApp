@@ -59,14 +59,21 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   };
 
   $scope.finishQuest = function () {
-    $rootScope.$viewHistory = {
-      histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
-      backView: null,
-      forwardView: null,
-      currentView: null,
-      disabledRegistrableTagNames: []
-    };
-    $state.go('tab.taker', {location: 'replace'});
+    for (var i = 0; i < $scope.quest.recipients.length; i++){
+      if ($scope.quest.recipients[i].user === userService.currentUser.username){
+        $scope.quest.recipients[i].status = "complete";
+      }
+    }
+    dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
+      $rootScope.$viewHistory = {
+        histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
+        backView: null,
+        forwardView: null,
+        currentView: null,
+        disabledRegistrableTagNames: []
+      };
+      $state.go('tab.taker', {location: 'replace'});
+    });
   };
 
   $scope.selectAnswer = function (answer) {
