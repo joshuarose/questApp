@@ -30,7 +30,21 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       type: 'button-royal',
       content: 'Abandon',
       tap: function(e) {
-        alert("Abandon all hope, ye who enter here.");
+        for (var i = 0; i < $scope.quest.recipients.length; i++){
+          if ($scope.quest.recipients[i].user === userService.currentUser.username){
+            $scope.quest.recipients[i].status = "abandoned";
+          }
+        }
+        dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
+          $rootScope.$viewHistory = {
+            histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
+            backView: null,
+            forwardView: null,
+            currentView: null,
+            disabledRegistrableTagNames: []
+          };
+          $state.go('tab.taker', {location: 'replace'});
+        });
       }
     }
   ];
