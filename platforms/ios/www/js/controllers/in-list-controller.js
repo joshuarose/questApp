@@ -39,8 +39,10 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
 
   $scope.openQuest = function (index) {
     for (var i = 0; i < $scope.quests[index].recipients.length; i++){
-      if ($scope.quests[index].recipients[i].status === "new"){
-        $state.go('tab.takerid',{ id: $scope.quests[index].id});
+      if ($scope.quests[index].recipients[i].user === userService.currentUser.username){
+        if ($scope.quests[index].recipients[i].status === "new"){
+          $state.go('tab.takerid',{ id: $scope.quests[index].id});
+        }
       }
     }
   };
