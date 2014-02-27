@@ -8,11 +8,34 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   $scope.selected = false;
   $scope.activeAnswer = "";
   $scope.reveal = false;
+  $scope.fail = false;
   var resultCollection = null;
 
   $scope.getNextQuestion = function () {
+    $scope.addResult();
+    for (var i = 0; i < $scope.activeQuestion.answers.length; i++){
+      if ($scope.activeQuestion.answers[i].text === $scope.activeAnswer){
+        if ($scope.activeQuestion.answers[i].bomb === true){
+          for (var x = 0; x < $scope.quest.recipients.length; x++){
+            if ($scope.quest.recipients[x].user === userService.currentUser.username){
+              $scope.quest.recipients[x].status = "fail";
+            }
+          }
+          dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
+            $rootScope.$viewHistory = {
+              histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
+              backView: null,
+              forwardView: null,
+              currentView: null,
+              disabledRegistrableTagNames: []
+            };
+          });
+          $scope.fail = true;
+          return;
+        }
+      }
+    }
     if($scope.questions.length > 0){
-      $scope.addResult();
       $scope.activeQuestion = $scope.questions.splice(0, 1)[0];
       $scope.clearSelection();
     }
@@ -20,6 +43,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       $scope.addResult();
       dpd.results.post(resultCollection, function(results, error){
         $scope.reveal = true;
+        $scope.finishQuest();
         $scope.$apply();
       });
     }
@@ -30,10 +54,28 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       type: 'button-royal',
       content: 'Abandon',
       tap: function(e) {
-        alert("Abandon all hope, ye who enter here.");
+        for (var i = 0; i < $scope.quest.recipients.length; i++){
+          if ($scope.quest.recipients[i].user === userService.currentUser.username){
+            $scope.quest.recipients[i].status = "abandoned";
+          }
+        }
+        $scope.endQuest();
       }
     }
   ];
+
+  $scope.endQuest = function () {
+    dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
+      $rootScope.$viewHistory = {
+        histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
+        backView: null,
+        forwardView: null,
+        currentView: null,
+        disabledRegistrableTagNames: []
+      };
+      $state.go('tab.taker', {location: 'replace'});
+    });
+  };
 
   $scope.addResult  = function () {
     if (resultCollection === null) {
@@ -45,14 +87,11 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   };
 
   $scope.finishQuest = function () {
-    $rootScope.$viewHistory = {
-      histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
-      backView: null,
-      forwardView: null,
-      currentView: null,
-      disabledRegistrableTagNames: []
-    };
-    $state.go('tab.taker', {location: 'replace'});
+    for (var i = 0; i < $scope.quest.recipients.length; i++){
+      if ($scope.quest.recipients[i].user === userService.currentUser.username){
+        $scope.quest.recipients[i].status = "complete";
+      }
+    }
   };
 
   $scope.selectAnswer = function (answer) {

@@ -1,39 +1,46 @@
 <ion-view title="'Taker'" left-buttons="leftButtons" hide-back-button="true" back-button-label="">
   <ion-content has-header="true" has-tabs="true" padding="true">
     <div class="reveal" ng-show="reveal">This quest brought to you by : {{quest.owner}}</div>
-    <div ng-hide="reveal">
-      <div class="col-xs-12 questionContainer">
-        <div class="question"><p class="question-text">{{activeQuestion.text}}</p></div>
-      </div>
+    <div class="reveal" ng-show="fail">You have failed in your quest...</div>
+    <div ng-hide="fail">
+      <div ng-hide="reveal">
+        <div class="col-xs-12 questionContainer">
+          <div class="question"><p class="question-text">{{activeQuestion.text}}</p></div>
+        </div>
 
-      <br />
-      <br />
-      <br />
-      <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-      <div ng-repeat="answer in activeQuestion.answers" class="col-xs-8 col-xs-offset-4 answerContainer">
-        <div class="answer" ng-click="selectAnswer(answer)" ng-class="{true: 'selected', false: 'nobomb'}[answer.selected]">
-          <p class="answer-text">{{answer.text}}</p>
+        <div ng-repeat="answer in activeQuestion.answers" class="col-xs-8 col-xs-offset-4 answerContainer">
+          <div class="answer" ng-click="selectAnswer(answer)" ng-class="{true: 'selected', false: 'nobomb'}[answer.selected]">
+            <p class="answer-text">{{answer.text}}</p>
+            <br />
+          </div>
           <br />
         </div>
-        <br />
-      </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
-      <button ng-show="selected" class="col-xs-12 button button-royal pull-right" ng-click="getNextQuestion()">
-        Confirm
-      </button>
+        <button ng-show="selected" class="col-xs-12 button button-royal pull-right" ng-click="getNextQuestion()">
+          Confirm
+        </button>
+      </div>
     </div>
+
     <div>
       <br/>
       <br/>
       <br/>
       <br/>
     </div>
-    <button ng-show="reveal" class="col-xs-12 button button-royal pull-right" ng-click="finishQuest()">
+    <button ng-show="reveal" class="col-xs-12 button button-royal" ng-click="endQuest()">
+      Finish
+    </button>
+    <button ng-show="fail" class="col-xs-12 button button-royal" ng-click="endQuest()">
       Finish
     </button>
 

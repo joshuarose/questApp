@@ -8,15 +8,11 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   $scope.questId = "";
 
   $scope.updateRecipients = function () {
-    //if there are no commas
-    if (($scope.data.sendtext.split(",").length - 1) > 0){
-      var names = $scope.data.sendtext.split(',');
-      for(var i = 0; i < names.length; i++) {
-        recipients.push({"user" : names[i], status : "new"});
-      }
-    }
-    else{
-      recipients.push({"user" : $scope.data.sendtext, status : "new"});
+    //if there are  commas
+    recipients = [];
+    var names = $scope.data.sendtext.split(',');
+    for(var i = 0; i < names.length; i++) {
+      recipients.push({"user" : names[i], status : "new"});
     }
   };
 

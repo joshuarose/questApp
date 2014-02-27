@@ -22,17 +22,25 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     for (var i = 0; i < $scope.quests[index].recipients.length; i++){
       if ($scope.quests[index].recipients[i].user === userService.currentUser.username){
         if ($scope.quests[index].recipients[i].status === "new"){
-          return "??????????";
+          return "?????????? - new";
         }
         else if ($scope.quests[index].recipients[i].status === "abandoned"){
-          return "?????????";
+          return "????????? - abandoned";
         }
         else if ($scope.quests[index].recipients[i].status === "fail"){
-          return $scope.quests[index].title;
+          return $scope.quests[index].title + " - fail";
         }
         else if ($scope.quests[index].recipients[i].status === "complete"){
-          return $scope.quests[index].title;
+          return $scope.quests[index].title + " - complete";
         }
+      }
+    }
+  };
+
+  $scope.openQuest = function (index) {
+    for (var i = 0; i < $scope.quests[index].recipients.length; i++){
+      if ($scope.quests[index].recipients[i].status === "new"){
+        $state.go('tab.takerid',{ id: $scope.quests[index].id});
       }
     }
   };

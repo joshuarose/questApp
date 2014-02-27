@@ -1,7 +1,7 @@
 <ion-view title="'Taker'" hide-back-button="true" back-button-label="">
     <ion-content has-header="true" has-tabs="true" padding="true">
       <ion-list>
-        <ion-item ng-repeat="quest in quests track by $index" ui-sref="tab.takerid({id: quest.id})">
+        <ion-item ng-repeat="quest in quests track by $index" ng-click="openQuest($index)"> <!--ui-sref="tab.takerid({id: quest.id})" -->
           {{getQuest($index)}}
           <i class="ion-plus-circled pull-right"></i>
         </ion-item>
