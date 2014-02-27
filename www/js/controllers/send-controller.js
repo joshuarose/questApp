@@ -8,7 +8,12 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   $scope.questId = "";
 
   $scope.updateRecipients = function () {
-    recipients = $scope.data.sendtext.split(',');
+    //if there are  commas
+    recipients = [];
+    var names = $scope.data.sendtext.split(',');
+    for(var i = 0; i < names.length; i++) {
+      recipients.push({"user" : names[i], status : "new"});
+    }
   };
 
   $scope.rightButtons = [

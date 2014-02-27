@@ -5,7 +5,7 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
   $scope.init = function () {
     if (userService.loggedIn) {
       $scope.loggedIn = true;
-      dpd.quests.get({recipients: userService.currentUser.username }, function(results, error) {
+      dpd.quests.get({"recipients.user": userService.currentUser.username }, function(results, error) {
         if(error){
           return;
         }

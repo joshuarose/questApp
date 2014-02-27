@@ -1,7 +1,7 @@
 /**
  * Created by joshuarose on 1/8/14.
  */
-questApp.controller('results-list-controller', function($scope, userService) {
+questApp.controller('results-list-controller', function($scope, userService, $state) {
   $scope.results = "";
   $scope.loggedIn = false;
 
