@@ -5,7 +5,7 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
   $scope.init = function () {
     if (userService.loggedIn) {
       $scope.loggedIn = true;
-      dpd.quests.get({"recipients.user": userService.currentUser.username }, function(results, error) {
+      dpd.quests.get({recipients: {$elemMatch : { user: userService.currentUser.username } } }, function(results, error) {
         if(error){
           return;
         }
@@ -15,6 +15,25 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     }
     else {
       $state.go('tab.login');
+    }
+  };
+
+  $scope.getQuest = function (index) {
+    for (var i = 0; i < $scope.quests[index].recipients.length; i++){
+      if ($scope.quests[index].recipients[i].user === userService.currentUser.username){
+        if ($scope.quests[index].recipients[i].status === "new"){
+          return "??????????";
+        }
+        else if ($scope.quests[index].recipients[i].status === "abandoned"){
+          return "?????????";
+        }
+        else if ($scope.quests[index].recipients[i].status === "fail"){
+          return $scope.quests[index].title;
+        }
+        else if ($scope.quests[index].recipients[i].status === "complete"){
+          return $scope.quests[index].title;
+        }
+      }
     }
   };
 
