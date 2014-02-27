@@ -31,6 +31,9 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
             };
           });
           $scope.fail = true;
+          dpd.results.post(resultCollection, function(results, error){
+            $scope.$apply();
+          });
           return;
         }
       }
@@ -40,7 +43,6 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       $scope.clearSelection();
     }
     else{
-      $scope.addResult();
       dpd.results.post(resultCollection, function(results, error){
         $scope.reveal = true;
         $scope.finishQuest();
@@ -81,8 +83,14 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
     if (resultCollection === null) {
       resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : []};
     }
-    var result = {question: $scope.activeQuestion.text, answer: $scope.activeAnswer};
 
+    var result = {question: $scope.activeQuestion.text, answer: $scope.activeAnswer, unchosen: []};
+
+    for (var i = 0; i < $scope.activeQuestion.answers.length; i++){
+      if ($scope.activeQuestion.answers[i].text !== $scope.activeAnswer){
+        result.unchosen.push($scope.activeQuestion.answers[i].text);
+      }
+    }
     resultCollection.answers.push(result);
   };
 
