@@ -58,7 +58,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
 
     $scope.rightButtons = [
       {
-        type: "button-royal",
+        type: "button-positive",
         content: "Send",
         tap : function (e) {
           $state.go('tab.send', {id : $scope.quest.id});

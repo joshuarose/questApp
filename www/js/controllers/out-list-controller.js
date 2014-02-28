@@ -22,7 +22,7 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
     };
   $scope.rightButtons = [
     {
-      type: "button-royal",
+      type: "button-positive",
       content: "New Quest",
       tap : function (e) {
         $state.go('tab.makerid', {id : createGuid()});

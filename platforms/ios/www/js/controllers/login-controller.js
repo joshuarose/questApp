@@ -34,7 +34,7 @@ questApp.controller('login-controller', function ($scope, userService) {
 
     $scope.rightButtons = [
       {
-        type: "button-royal",
+        type: "button-positive",
         content: "Log Out",
         tap: function (e) {
           $scope.loggedIn = false;

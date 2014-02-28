@@ -53,7 +53,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
 
   $scope.leftButtons = [
     {
-      type: 'button-royal',
+      type: 'button-positive',
       content: 'Abandon',
       tap: function(e) {
         for (var i = 0; i < $scope.quest.recipients.length; i++){

@@ -18,7 +18,7 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
 
   $scope.rightButtons = [
     {
-      type: "button-royal",
+      type: "button-positive",
       content: "Send",
       tap : function (e) {
         $scope.updateRecipients();
