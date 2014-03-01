@@ -19,7 +19,8 @@ questApp.controller('login-controller', function ($scope, userService) {
     };
 
     $scope.register = function (email, password, username, phone) {
-        var promise = userService.register(email, password, username, phone);
+        var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
+        var promise = userService.register(email, password, username, formattedPhone);
         promise.then(function (user) {
           $scope.user = user;
           $scope.loggedIn = true;

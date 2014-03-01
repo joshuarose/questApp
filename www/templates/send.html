@@ -1,9 +1,18 @@
 <ion-view title="'Send'" right-buttons="rightButtons">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input ng-model="data.sendtext" type="text" placeholder="Recipients" ng-change="updateRecipients()">
-      </label>
+    <!--<div class="list list-inset">-->
+      <!--<label class="item item-input">-->
+        <!--<input ng-model="data.sendtext" type="text" placeholder="Recipients" ng-change="updateRecipients()">-->
+      <!--</label>-->
+    <!--</div>-->
+    <input type="text" placeholder="Enter username, phone, or email of quester"  ng-change="userTypeAhead(selected)" ng-model="selected"
+           typeahead="result.username for result in searchResults | filter:$viewValue | limitTo:3"
+           typeahead-on-select="onSelect($item, $model, $label)" typeahead-input-formatter="formatInput($model)" class="form-control">
+    <div class="col-xs-8 col-xs-offset-4  adderstyle" ng-repeat="user in sendList track by $index"><p class="addertext">{{user}}</p>
+      <span
+      ng-click="removeRecipients($index)"
+      class="ion-trash-a pull-right">
+      </span>
     </div>
   </ion-content>
 </ion-view>
