@@ -11,8 +11,10 @@ questApp.controller('login-controller', function ($scope, userService) {
     $scope.login = function (email, password) {
         var promise = userService.login(email, password);
         promise.then(function (user) {
-          $scope.user = user;
-          $scope.loggedIn = true;
+          if (user){
+            $scope.user = user;
+            $scope.loggedIn = true;
+          }
         }, function (error) {
           toastr.clear();
           toastr.error(error);
@@ -24,8 +26,10 @@ questApp.controller('login-controller', function ($scope, userService) {
         var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
         var promise = userService.register(email, password, username, formattedPhone);
         promise.then(function (user) {
-          $scope.user = user;
-          $scope.loggedIn = true;
+          if (user){
+            $scope.user = user;
+            $scope.loggedIn = true;
+          }
         }, function (error) {
           toastr.clear();
           toastr.error(error);
@@ -52,8 +56,9 @@ questApp.controller('login-controller', function ($scope, userService) {
     ];
 
     $scope.init = function () {
-      if ($scope.user !== null) {
+      if ($scope.user) {
         $scope.loggedIn = true;
+        $scope.user = userService.currentUser;
       }
       else{
         $scope.loggedIn = false;
