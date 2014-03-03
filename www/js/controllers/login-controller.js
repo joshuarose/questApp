@@ -22,19 +22,52 @@ questApp.controller('login-controller', function ($scope, userService) {
         });
     };
 
+    $scope.validateInfo = function (email, password, phone, user) {
+      var formValid = true;
+
+      var re = /\S+@\S+\.\S+/;
+      var emailValid = re.test(email);
+
+      if (!emailValid) {
+        toastr.error("Valid email required");
+        formValid = false;
+      }
+
+      var re2 = /^\(?\d{3}\)? ?-? ?\d{3} ?-? ?\d{4}$/;
+      var phoneValid = re2.test(phone);
+      if (!phoneValid) {
+        toastr.error("Valid phone required");
+        formValid = false;
+      }
+
+      if (password.length < 6){
+        toastr.error("Password must be at least 6 characters");
+        formValid = false;
+      }
+
+      if (user.length < 4){
+        toastr.error("Username must be at least 4 characters");
+        formValid = false;
+      }
+
+      return formValid;
+    };
+
     $scope.register = function (email, password, username, phone) {
-        var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
-        var promise = userService.register(email, password, username, formattedPhone);
-        promise.then(function (user) {
-          if (user){
-            $scope.user = user;
-            $scope.loggedIn = true;
-          }
-        }, function (error) {
-          toastr.clear();
-          toastr.error(error);
-          $scope.loggedIn = false;
-        });
+        if ($scope.validateInfo (email,password,phone,username)) {
+          var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
+          var promise = userService.register(email, password, username, formattedPhone);
+          promise.then(function (user) {
+            if (user){
+              $scope.user = user;
+              $scope.loggedIn = true;
+            }
+          }, function (error) {
+            toastr.clear();
+            toastr.error(error);
+            $scope.loggedIn = false;
+          });
+        }
     };
 
     $scope.logOut = function () {
