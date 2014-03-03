@@ -4,10 +4,11 @@
            typeahead="result.username for result in searchResults | filter:$viewValue | limitTo:3"
            typeahead-on-select="onSelect($item, $model, $label)" typeahead-input-formatter="formatInput($model)" class="form-control">
     <div class="col-xs-8 col-xs-offset-4  adderstyle" ng-repeat="user in sendList track by $index"><p class="addertext">{{user}}</p>
-      <span
-      ng-click="removeRecipients($index)"
-      class="ion-trash-a pull-right">
-      </span>
+      <button class="button button-assertive pull-right" ng-click="removeRecipients($index)">
+        <i
+          class="ion-trash-a">
+        </i>
+      </button>
     </div>
   </ion-content>
 </ion-view>
