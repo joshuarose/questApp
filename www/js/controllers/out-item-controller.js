@@ -54,6 +54,11 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.removeAnswer = function (question, index) {
+      if (question.answers[index].text.length > 1){
+        question.answers[index].text = "";
+        return;
+      }
+
       if (question.answers.length <= 2){
         toastr.error("A question must have at least 2 answers");
       }
@@ -65,9 +70,26 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       }
     };
 
-    $scope.removeQuestion = function (id) {
+    $scope.setBomb = function (question, index) {
+      if (question.answers[index].bomb){
+        question.answers[index].bomb = false;
+        $scope.update(question);
+      }
+      else{
+        question.answers[index].bomb = true;
+        $scope.update(question);
+      }
+    };
+
+    $scope.removeQuestion = function (id, index) {
+      if ($scope.questions[index].text.length > 1){
+        $scope.questions[index].text = "";
+        return;
+      }
+
       if ($scope.questions.length <= 1){
         toastr.error("A quest must have at least 1 question");
+        return;
       }
       else{
         dpd.questions.del(id, function(result, error) {

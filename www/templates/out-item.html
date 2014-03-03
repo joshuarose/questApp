@@ -9,7 +9,7 @@
             <ul>
                 <div
                         class="col-xs-12 questionContainer"
-                        ng-repeat="question in questions | orderBy : creationtime">
+                        ng-repeat="question in questions track by $index | orderBy : creationtime">
                     <div Class="question">
                         <a
                                 class="question-text"
@@ -22,15 +22,17 @@
                                 onshow="focusEditBox()"
                                 e-placeholder="Enter question text"
                                 blur="submit">{{ question.text || 'Tap to edit' }}</a>
-                <span
-                        ng-click="removeQuestion(question.id)"
-                        class="ion-trash-a pull-right">
-                </span>
+                        <button class="button button-assertive pull-right" ng-click="removeQuestion(question.id, $index)">
+                          <i
+                            class="ion-trash-a">
+                          </i>
+                        </button>
+
                     </div>
                     <br />
                     <div
                             class="col-xs-8 col-xs-offset-4 answerContainer"
-                            ng-class="{true: 'bomb', false: 'nobomb'}[answer.bomb]"
+                            ng-class="{true: 'bomb', false: 'correct'}[answer.bomb]"
                             ng-repeat="answer in question.answers track by $index | orderBy : creationtime">
                         <div class="answer">
                             <a
@@ -45,12 +47,16 @@
                                     blur="submit">{{ answer.text || 'Tap to edit' }}
                             </a>
                             <br/>
-                            <label for="{{answer}}"><i class="ion-nuclear"></i><input id="{{answer}}" type="checkbox" ng-model="answer.bomb" class="pull-left" /></label>
+                            <!--<label for="{{answer}}"><i class="ion-nuclear"></i><input id="{{answer}}" type="checkbox" ng-model="answer.bomb" class="pull-left" /></label>-->
                         </div>
-                <span
-                        ng-click="removeAnswer(question, $index)"
-                        class="ion-trash-a pull-right">
-                </span>
+                      <button class="button button-assertive pull-right" ng-click="removeAnswer(question, $index)">
+                        <i
+                          class="ion-trash-a">
+                        </i>
+                      </button>
+                      <button class="button button-light pull-right" ng-click="setBomb(question, $index)">
+                        <img ng-src="{{answer.bomb === true && 'img/icnBad.png' || 'img/icnGood.png' }}" />
+                      </button>
                     </div>
                     <div
                             class="col-xs-8 col-xs-offset-4 adderstyle"
