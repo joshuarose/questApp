@@ -1,6 +1,7 @@
 questApp.controller('out-list-controller', function ($scope, userService, $state) {
     $scope.quests = "";
     $scope.loggedIn = false;
+    $scope.empty = true;
 
     $scope.init = function () {
       if (userService.loggedIn) {
@@ -10,6 +11,9 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
             return;
           }
           $scope.quests = results;
+          if (results.length > 0){
+            $scope.empty = false;
+          }
           $scope.$apply();
         });
       }
@@ -22,7 +26,7 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
     };
   $scope.rightButtons = [
     {
-      type: "button-royal",
+      type: "button-positive",
       content: "New Quest",
       tap : function (e) {
         $state.go('tab.makerid', {id : createGuid()});

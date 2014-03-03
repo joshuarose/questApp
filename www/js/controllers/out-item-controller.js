@@ -192,7 +192,20 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       //        //var tb = document.getElementById('editbox');
       //        $('#editbox').blur().delay(20).focus();
 
-    };
+      var ua = navigator.userAgent.toLowerCase();
+      var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+      if(isAndroid) {
+        $('#editbox').on("focus", function () {
+          SoftKeyboard.show();
+          $('#editbox').ScrollTo();
+        }).on("blur", function () {
+          SoftKeyboard.hide();
+        });
+        //do something benign to ios
+      };
+      }
+
+
 
     $scope.init();
 });

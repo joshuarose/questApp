@@ -55,6 +55,9 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="KeyboardShrinksView" value="true" />
+    <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
+    <preference name="windowSoftInputMode" value="adjustResize" />
     <icon src="icon.png" />
     <icon gap:density="ldpi" gap:platform="android" src="icons/android/ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="icons/android/mdpi.png" />

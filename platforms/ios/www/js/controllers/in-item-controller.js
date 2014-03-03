@@ -1,7 +1,7 @@
 /**
  * Created by joshuarose on 2/24/14.
  */
-questApp.controller('in-item-controller', function($scope, userService, $stateParams, $state, $rootScope){
+questApp.controller('in-item-controller', function($scope, userService, $stateParams, $state, $rootScope, md5){
   $scope.quest = {};
   $scope.questions = [];
   $scope.activeQuestion = {};
@@ -9,6 +9,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   $scope.activeAnswer = "";
   $scope.reveal = false;
   $scope.fail = false;
+  $scope.sender = {};
   var resultCollection = null;
 
   $scope.getNextQuestion = function () {
@@ -65,6 +66,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       }
     }
   ];
+
 
   $scope.endQuest = function () {
     dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
@@ -129,6 +131,10 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
 
     dpd.quests.get({id: $stateParams.id}, function (results, error) {
       $scope.quest = results;
+      dpd.users.get({username : $scope.quest.owner}, function(results, error){
+        $scope.sender = results[0];
+        $scope.$apply();
+      });
     });
     dpd.questions.get({questid: $stateParams.id}, function (results, error) {
       if (error) {
@@ -144,6 +150,13 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
 
       $scope.$apply();
     });
+  };
+
+  $scope.getGravatar = function (email) {
+    var baseUrl = "http://www.gravatar.com/avatar/"
+    var hash = md5.createHash(email);
+    baseUrl += hash + "?s=200";
+    return baseUrl;
   };
 
   $scope.init();
