@@ -29,7 +29,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       });
     };
 
-    $scope.updateTitle = function () {
+    $scope.updateQuest = function () {
       if ($scope.quest.title.length <= 0){
         toastr.error("Title cannot be blank");
         $scope.quest.title = "New quest";
