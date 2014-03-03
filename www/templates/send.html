@@ -1,10 +1,5 @@
 <ion-view title="'Send'" right-buttons="rightButtons">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <!--<div class="list list-inset">-->
-      <!--<label class="item item-input">-->
-        <!--<input ng-model="data.sendtext" type="text" placeholder="Recipients" ng-change="updateRecipients()">-->
-      <!--</label>-->
-    <!--</div>-->
     <input type="text" placeholder="Enter username, phone, or email of quester"  ng-change="userTypeAhead(selected)" ng-model="selected"
            typeahead="result.username for result in searchResults | filter:$viewValue | limitTo:3"
            typeahead-on-select="onSelect($item, $model, $label)" typeahead-input-formatter="formatInput($model)" class="form-control">

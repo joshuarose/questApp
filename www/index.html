@@ -11,7 +11,7 @@
     <link href="lib/css/ionic.css" rel="stylesheet">
     <link href="lib/css/bootstrap.min.css" rel="stylesheet" />
     <link href="lib/css/xeditable.css" rel="stylesheet" />
-
+    <link href="lib/css/toastr.min.css" rel="stylesheet"/>
     <!-- your app's css -->
     <link href="css/app.css" rel="stylesheet">
 
@@ -19,6 +19,8 @@
     <script src="lib/js/ionic.bundle.js"></script>
     <script src="lib/js/xeditable/xeditable.min.js"></script>
     <script src="lib/js/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="lib/js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="lib/js/toastr/toastr.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -63,6 +65,21 @@
 
   <script>
     document.addEventListener('focusout', function(e) {window.scrollTo(0, 0)});
+
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "positionClass": "toast-top-center",
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "2000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
   </script>
   </body>
 </html>

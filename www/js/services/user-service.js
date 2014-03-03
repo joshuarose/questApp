@@ -14,8 +14,7 @@ questApp.factory('userService', function ($location, $q) {
           password: pw
         }, function (result, error) {
             if (error){
-              alert("Error: " + error.code + " " + error.message);
-              deferred.reject(error);
+              deferred.reject(error.message);
             }
             dpd('users').get('me', function(result, error) {
               factory.currentUser = result;
@@ -38,7 +37,7 @@ questApp.factory('userService', function ($location, $q) {
       }, function(user, error) {
         if (error) {
           if (error.message) {
-            alert(message);
+            deferred.reject(error.message);
           } else if (error.errors) {
             var messages = '';
             var errors = error.errors;
@@ -50,7 +49,7 @@ questApp.factory('userService', function ($location, $q) {
               messages += "Password " + errors.password + "\n";
             }
 
-            alert(messages);
+            deferred.reject(messages);
           }
         } else {
           dpd.users.login({
@@ -58,8 +57,7 @@ questApp.factory('userService', function ($location, $q) {
             password: pw
           }, function (result, error) {
             if (error){
-              alert("Error: " + error.code + " " + error.message);
-              deferred.reject(error);
+              deferred.reject(error.message);
             }
             dpd('users').get('me', function(result, error) {
               factory.currentUser = result;

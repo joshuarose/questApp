@@ -14,7 +14,9 @@ questApp.controller('login-controller', function ($scope, userService) {
           $scope.user = user;
           $scope.loggedIn = true;
         }, function (error) {
-          $scope.error = error;
+          toastr.clear();
+          toastr.error(error);
+          $scope.loggedIn = false;
         });
     };
 
@@ -25,12 +27,16 @@ questApp.controller('login-controller', function ($scope, userService) {
           $scope.user = user;
           $scope.loggedIn = true;
         }, function (error) {
-          $scope.error = error;
+          toastr.clear();
+          toastr.error(error);
+          $scope.loggedIn = false;
         });
     };
 
     $scope.logOut = function () {
       userService.logOut();
+      $scope.loggedIn = false;
+      $scope.user = null;
     };
 
     $scope.rightButtons = [
@@ -39,6 +45,7 @@ questApp.controller('login-controller', function ($scope, userService) {
         content: "Log Out",
         tap: function (e) {
           $scope.loggedIn = false;
+          $scope.user = null;
           $scope.logOut();
         }
       }
@@ -47,6 +54,10 @@ questApp.controller('login-controller', function ($scope, userService) {
     $scope.init = function () {
       if ($scope.user !== null) {
         $scope.loggedIn = true;
+      }
+      else{
+        $scope.loggedIn = false;
+        $scope.user = null;
       }
     };
 
