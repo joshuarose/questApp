@@ -66,6 +66,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
     }
   ];
 
+
   $scope.endQuest = function () {
     dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
       $rootScope.$viewHistory = {
