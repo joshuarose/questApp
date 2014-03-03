@@ -1,6 +1,10 @@
 <ion-view title="'Taker'" left-buttons="leftButtons" hide-back-button="true" back-button-label="">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <div class="reveal" ng-show="reveal">This quest brought to you by : {{quest.owner}}</div>
+    <div class="reveal" ng-show="reveal">
+      This quest brought to you by : {{quest.owner}}
+      <br/>
+      <img src="{{getGravatar(sender.email)}}">
+    </div>
     <div class="reveal" ng-show="fail">You have failed in your quest...</div>
     <div ng-hide="fail">
       <div ng-hide="reveal">
