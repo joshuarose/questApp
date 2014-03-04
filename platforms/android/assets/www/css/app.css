@@ -24,8 +24,16 @@ a.editable-click:hover {
     text-align: center;
 }
 .question {
+    background-color: #1c92fd;
+    border-radius: 5px;
     padding: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.questionTaker {
+    padding: 10px;
+    padding-bottom: 15px;
     background-color: #1c92fd;
     border-radius: 5px;
 }
@@ -69,11 +77,11 @@ a.editable-click:hover {
     color: #ffffff;
     text-decoration: none;
     font-weight: bolder;
+    padding: 30px;
 }
 
 .answer-text {
-    padding-left : 25px;
-    padding-top : 20px;
+    padding: 30px;
     color: #ffffff;
     text-decoration: none;
     font-weight: bolder;
@@ -112,6 +120,14 @@ a.editable-click:hover {
     margin-top: 2px;
     margin-bottom: 2px;
 }
+.unselected {
+    background-color: #a2d4ff;
+    border-radius: 5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
 .bomb {
     background-color: #e5b9b7;
     border-radius: 5px;
@@ -123,8 +139,8 @@ a.editable-click:hover {
 .selected {
     background-color: #77DD77;
     border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -166,6 +182,4 @@ label{
     .toast-top-center {
         margin-left: -96px;
     }
-}
-.button-padding{
 }

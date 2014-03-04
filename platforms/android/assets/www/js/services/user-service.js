@@ -21,6 +21,7 @@ questApp.factory('userService', function ($location, $q) {
             dpd('users').get('me', function(result, error) {
               factory.currentUser = result;
               factory.loggedIn = true;
+              factory.currentUser.password = pw;
               window.localStorage.setItem("user", JSON.stringify(factory.currentUser));
               deferred.resolve(result);
             });
@@ -68,6 +69,7 @@ questApp.factory('userService', function ($location, $q) {
             dpd('users').get('me', function(result, error) {
               factory.currentUser = result;
               factory.loggedIn = true;
+              factory.currentUser.password = pw;
               window.localStorage.setItem("user", JSON.stringify(result));
               deferred.resolve(result);
             });
@@ -81,8 +83,12 @@ questApp.factory('userService', function ($location, $q) {
     factory.init = function () {
       var user = JSON.parse(window.localStorage.getItem("user"));
       if (user){
-        factory.currentUser =  user;
-        factory.loggedIn = true;
+        if (user.username && user.password){
+          factory.login(user.username, user.password);
+          delete user.password;
+          factory.currentUser = user;
+          factory.loggedIn = true;
+        }
       }
       else{
         factory.currentUser = null;
