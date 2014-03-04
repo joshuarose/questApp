@@ -1,0 +1,14 @@
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\ApplicationIcon.png
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\Background.png
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\com.openspace.quest.dll
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\com.openspace.quest.pdb
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\AppManifest.xaml
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\Properties\WMAppManifest.xml
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\App.g.cs
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\cordovalib\CordovaView.g.cs
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\MainPage.g.cs
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\com.openspace.quest.g.resources
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\com.openspace.quest.dll
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\com.openspace.quest.pdb
+C:\Users\jrose\Documents\GitHub\questApp\platforms\wp8\obj\Debug\XapCacheFile.xml
