@@ -60,6 +60,7 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/results-list-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/send-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services/quest-service.js \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services/sms-service.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services/user-service.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/css \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/fonts \
@@ -86,6 +87,7 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/ionic.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/jquery \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/toastr \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/twilio \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/ui-bootstrap \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/xeditable \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/angular/angular-animate.js \
@@ -128,6 +130,7 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/jquery/jquery-2.1.0.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/jquery/jquery-scrollto.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/toastr/toastr.min.js \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/twilio/twilio.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/xeditable/xeditable.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/de.phonostar.softkeyboard \

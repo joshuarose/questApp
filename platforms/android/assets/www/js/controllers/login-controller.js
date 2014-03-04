@@ -1,4 +1,4 @@
-questApp.controller('login-controller', function ($scope, userService) {
+questApp.controller('login-controller', function ($scope, userService, smsService) {
     $scope.error = "";
     $scope.email = "";
     $scope.password = "";
@@ -40,6 +40,12 @@ questApp.controller('login-controller', function ($scope, userService) {
         formValid = false;
       }
 
+      var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
+      if (formattedPhone.length !== 10){
+        toastr.error("Phone number must be valid 10 digit syntax");
+        formValid = false;
+      }
+
       if (password.length < 6){
         toastr.error("Password must be at least 6 characters");
         formValid = false;
@@ -61,6 +67,7 @@ questApp.controller('login-controller', function ($scope, userService) {
             if (user){
               $scope.user = user;
               $scope.loggedIn = true;
+              smsService.sendSMS(formattedPhone, "Thanks for registering for quest " + username + "!");
             }
           }, function (error) {
             toastr.clear();
