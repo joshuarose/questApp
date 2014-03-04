@@ -30,15 +30,9 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     };
 
     $scope.updateQuest = function () {
-      if ($scope.quest.title.length <= 0){
-        toastr.error("Title cannot be blank");
-        $scope.quest.title = "New quest";
-      }
-      else{
-        dpd.quests.put($scope.quest.id, $scope.quest, function(results, error){
-          $scope.$apply();
-        });
-      }
+      dpd.quests.put($scope.quest.id, $scope.quest, function(results, error){
+        $scope.$apply();
+      });
     };
 
     $scope.addAnswer = function (question) {
@@ -152,6 +146,11 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
 
     //no more than 2-4 answers
     //at least 1 answer per question has to be bomb - false
+    if ($scope.quest.title.length <= 0){
+      toastr.error("Title cannot be blank");
+      return false;
+    }
+
     var noLengthQuestion = false;
     for(var i = 0; i < $scope.questions.length; i++){
       var allWrong = true;
@@ -197,7 +196,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       if(isAndroid) {
         $('#editbox').on("focus", function () {
           SoftKeyboard.show();
-          $('#editbox').ScrollTo().focus();
+          $('#editbox').ScrollTo();
         }).on("blur", function () {
           SoftKeyboard.hide();
         });
