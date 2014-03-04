@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">-->
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimal-ui">
+    <title>Quest App</title>
+
+    <!-- ionic css -->
+    <script src="https://quest.openspacedev.com:5000/dpd.js"></script>
+    <link href="lib/css/ionic.css" rel="stylesheet">
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/css/xeditable.css" rel="stylesheet" />
+    <link href="lib/css/toastr.min.css" rel="stylesheet"/>
+    <!-- your app's css -->
+    <link href="css/app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs scripts -->
+    <script src="lib/js/ionic.bundle.js"></script>
+    <script src="lib/js/xeditable/xeditable.min.js"></script>
+    <script src="lib/js/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="lib/js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="lib/js/toastr/toastr.min.js"></script>
+    <script src="lib/js/angular-gravatar/md5.min.js"></script>
+    <script src="lib/js/angular-gravatar/angular-gravatar.min.js"></script>
+    <script src="lib/js/angular-gravatar/angular-md5.min.js"></script>
+    <script src="lib/js/jquery/jquery-scrollto.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script src="lib/softkeyboard.js"></script>
+
+    <!-- your app's script -->
+    <script src="js/app.js"></script>
+
+    <script src="js/services/user-service.js"></script>
+    <script src="js/services/quest-service.js"></script>
+    <script src="js/controllers/out-item-controller.js"></script>
+    <script src="js/controllers/login-controller.js"></script>
+    <script src="js/controllers/friends-controller.js"></script>
+    <script src="js/controllers/results-list-controller.js"></script>
+    <script src="js/controllers/in-list-controller.js"></script>
+    <script src="js/controllers/out-list-controller.js"></script>
+    <script src="js/controllers/send-controller.js"></script>
+    <script src="js/controllers/in-item-controller.js"></script>
+    <script src="js/controllers/results-item-controller.js"></script>
+  </head>
+
+  <!-- 
+    'starter' is the name of this angular module (js/app.js)
+  -->
+  <body ng-app="questApp" animation="slide-left-right-ios7">
+
+    <!-- 
+      The nav bar that will be updated as we navigate between views
+      Additional attributes set its look, ion-nav-bar animation and icons
+      Icons provided by Ionicons: http://ionicons.com/ 
+    -->
+    <ion-nav-bar type="bar-dark"
+             animation="nav-title-slide-ios7" 
+             back-button-type="button-icon button-clear" 
+             back-button-icon="ion-ios7-arrow-back"></ion-nav-bar>
+
+    <!-- 
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+
+  <script>
+    document.addEventListener('focusout', function(e) {window.scrollTo(0, 0)});
+
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "positionClass": "toast-top-center",
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "2000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+  </body>
+</html>
