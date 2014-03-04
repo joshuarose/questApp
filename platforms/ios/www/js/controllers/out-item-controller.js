@@ -147,7 +147,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     //no more than 2-4 answers
     //at least 1 answer per question has to be bomb - false
     if ($scope.quest.title.length <= 0){
-      toastr.error("Title cannot be blank");
+      toastr.error("Quest name cannot be blank");
       return false;
     }
 
@@ -186,11 +186,6 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
   };
 
     $scope.focusEditBox = function () {
-      //Setting the config.xml preference <preference name="KeyboardDisplayRequiresUserAction" value="false" /> negates the need for this
-      //        document.activeElement.blur();
-      //        //var tb = document.getElementById('editbox');
-      //        $('#editbox').blur().delay(20).focus();
-
       var ua = navigator.userAgent.toLowerCase();
       var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
       if(isAndroid) {
@@ -198,10 +193,10 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
           SoftKeyboard.show();
           $('#editbox').ScrollTo();
         }).on("blur", function () {
-          SoftKeyboard.hide();
-        });
-        //do something benign to ios
-      };
+            SoftKeyboard.hide();
+          });
+          //do something benign to ios
+        };
       }
 
 
