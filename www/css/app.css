@@ -190,3 +190,6 @@ label{
 .out-buttons{
     display: inline-block;
 }
+.recipient-entry{
+    border : 1px solid #666666;
+}

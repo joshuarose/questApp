@@ -1,10 +1,23 @@
+<script type="text/ng-template" id="customTemplate.html">
+  <div class="col-xs-12">
+    <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    <br/>
+    <span ng-repeat="email in match.model.email">E: {{email}}<br/></span>
+    <span ng-repeat="phone in match.model.phone">P : {{phone}}<br/></span>
+  </div>
+</script>
 <ion-view title="'Send'" right-buttons="rightButtons">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <input type="text" placeholder="Enter username, phone, or email of quester"  ng-change="userTypeAhead(selected)" ng-model="selected"
-           typeahead="result.username for result in searchResults | filter:$viewValue | limitTo:3"
-           typeahead-on-select="onSelect($item, $model, $label)" typeahead-input-formatter="formatInput($model)" class="form-control">
-    <div class="col-xs-8 col-xs-offset-4  adderstyle" ng-repeat="user in sendList track by $index"><p class="addertext">{{user}}</p>
-      <button class="button button-assertive pull-right" ng-click="removeRecipients($index)">
+    <div class="recipient-entry">
+    <input id="receivertext" type="text" placeholder="Enter phone or email of quester"  ng-change="userTypeAhead(selected)" ng-model="selected"
+           typeahead="result as result.name for result in contacts | filter:$viewValue | limitTo:1"
+           typeahead-on-select="onSelect($item, $model, $label)"
+           typeahead-input-formatter="formatInput($model)"
+           class="form-control"
+           typeahead-template-url="customTemplate.html">
+    </div>
+    <div class="col-xs-10 col-xs-offset-2  adderstyle clearfix" ng-repeat="user in sendList track by $index"><p class="addertext pull-left">{{user.name}}</p>
+      <button class="button button-assertive pull-right out-buttons" ng-click="removeRecipients($index)">
         <i
           class="ion-trash-a">
         </i>
