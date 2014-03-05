@@ -24,10 +24,12 @@ a.editable-click:hover {
     text-align: center;
 }
 .question {
-    padding: 20px;
-    padding-bottom: 30px;
     background-color: #1c92fd;
     border-radius: 5px;
+    padding: 20px;
+    padding-bottom: 50px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 .questionTaker {
     padding: 10px;
@@ -75,11 +77,11 @@ a.editable-click:hover {
     color: #ffffff;
     text-decoration: none;
     font-weight: bolder;
+    padding: 30px;
 }
 
 .answer-text {
-    padding-left : 25px;
-    padding-top : 20px;
+    padding: 30px;
     color: #ffffff;
     text-decoration: none;
     font-weight: bolder;

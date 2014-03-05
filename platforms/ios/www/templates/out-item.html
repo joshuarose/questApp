@@ -16,20 +16,17 @@
                 <div
                         class="col-xs-12 questionContainer"
                         ng-repeat="question in questions track by $index | orderBy : creationtime">
-                    <div Class="question">
-                        <a
-                                class="question-text"
-                                href="#"
-                                editable-textarea="question.text"
-                                e-rows="3"
-                                e-cols="80"
-                                onaftersave="update(question)"
-                                buttons="no"
-                                e-id="editbox"
-                                e-class="col-xs-12"
-                                onshow="focusEditBox()"
-                                e-placeholder="Enter question text"
-                                blur="submit">{{ question.text || 'Tap to edit' }}</a>
+                    <div class="question">
+                      <a
+                      class="question-text"
+                      href="#"
+                      editable-text="question.text"
+                      onaftersave="update(question)"
+                      buttons="no"
+                      e-id="editbox"
+                      onshow="focusEditBox()"
+                      e-placeholder="Enter question text"
+                      blur="submit">{{ question.text || 'Tap to edit' }}</a>
                         <button class="button button-assertive pull-right" ng-click="removeQuestion(question.id, $index)">
                           <i
                             class="ion-trash-a">
@@ -44,11 +41,9 @@
                             ng-repeat="answer in question.answers track by $index | orderBy : creationtime">
                         <div class="answer">
                             <a
-                                    class="pull-left"
+                                    class="answer-text pull-left"
                                     href="#"
-                                    editable-textarea="answer.text"
-                                    e-rows="2"
-                                    e-cols="60"
+                                    editable-text="answer.text"
                                     onaftersave="update(question)"
                                     buttons="no"
                                     e-id="editbox"
