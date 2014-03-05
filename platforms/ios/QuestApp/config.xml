@@ -21,9 +21,6 @@
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
-    <feature name="Contacts">
-        <param name="ios-package" value="CDVContacts" />
-    </feature>
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -44,6 +41,10 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Contacts">
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+        <param name="ios-package" value="CDVContacts" />
     </feature>
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
