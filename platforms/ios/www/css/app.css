@@ -24,12 +24,15 @@ a.editable-click:hover {
     text-align: center;
 }
 .question {
-    background-color: #1c92fd;
+    background-color: #2570A8;
     border-radius: 5px;
-    padding: 20px;
-    padding-bottom: 50px;
+    padding-top: 5px;
+    padding-left: 2px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     margin-top: 2px;
     margin-bottom: 2px;
+    clear: both;
 }
 .questionTaker {
     padding: 10px;
@@ -88,7 +91,7 @@ a.editable-click:hover {
 }
 
 .adderstyle {
-    background-color: #cbcbd0;
+    background-color: #B7C0C7;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -105,7 +108,7 @@ a.editable-click:hover {
     font-size: 1.5em;
 }
 .correct {
-    background-color: #d7e3bc;
+    background-color: #70C087;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -129,7 +132,7 @@ a.editable-click:hover {
     margin-bottom: 2px;
 }
 .bomb {
-    background-color: #e5b9b7;
+    background-color: #E15258;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -170,16 +173,20 @@ label{
 }
 @media all and (max-width: 240px) {
     .toast-top-center {
-        margin-left: -54px;
+        margin-left: -200px;
     }
 }
 @media all and (min-width: 241px) and (max-width: 320px) {
     .toast-top-center {
-        margin-left: -64px;
+        margin-left: -130px;
+        margin-top: 50px;
     }
 }
 @media all and (min-width: 321px) and (max-width: 480px) {
     .toast-top-center {
         margin-left: -96px;
     }
+}
+.out-buttons{
+    display: inline-block;
 }
