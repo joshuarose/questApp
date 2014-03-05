@@ -1,4 +1,4 @@
-questApp.controller('login-controller', function ($scope, userService, smsService) {
+questApp.controller('login-controller', function ($scope, userService, smsService, $state) {
     $scope.error = "";
     $scope.email = "";
     $scope.password = "";
@@ -94,6 +94,14 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
         }
       }
     ];
+
+    $scope.resetPassword = function () {
+      $state.go("tab.pwdreset")
+    };
+
+    $scope.changePassword = function () {
+      $state.go("tab.pwdchange")
+    };
 
     $scope.init = function () {
       if ($scope.user) {
