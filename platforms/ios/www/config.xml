@@ -11,6 +11,7 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
+    <preference name="prerendered-icon" value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
     <preference name="DisallowOverscroll" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <feature name="Device">
@@ -47,5 +48,25 @@
     <icon gap:platform="ios" height="72" src="icons/ios/icon-72.png" width="72" />
     <icon gap:platform="ios" height="114" src="icons/ios/icon_at_2x.png" width="114" />
     <icon gap:platform="ios" height="144" src="icons/ios/icon-72_at_2x.png" width="144" />
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <!-- Core plugins -->
+    <gap:plugin name="org.apache.cordova.battery-status" />
+    <gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.media-capture" />
+    <gap:plugin name="org.apache.cordova.console" />
+    <gap:plugin name="org.apache.cordova.contacts" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.file-transfer" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="org.apache.cordova.globalization" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.media" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.vibration" />
     <access origin="*" />
 </widget>
