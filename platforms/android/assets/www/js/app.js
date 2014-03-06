@@ -33,6 +33,24 @@ questApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('tab.pwdreset', {
+      url: '/pwdreset',
+      views: {
+        'login-tab': {
+          templateUrl: 'templates/pwd-reset.html',
+          controller: 'pwd-reset-controller'
+        }
+      }
+    })
+    .state('tab.pwdchange', {
+      url: '/pwdchange',
+      views: {
+        'login-tab': {
+          templateUrl: 'templates/pwd-change.html',
+          controller: 'pwd-change-controller'
+        }
+      }
+    })
     .state('tab.results', {
       url: "/results",
       views: {

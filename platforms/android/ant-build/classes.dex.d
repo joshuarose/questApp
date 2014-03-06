@@ -14,6 +14,13 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/openspaceapps/quest/R$xml.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/openspaceapps/quest/R.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/de/phonostar/SoftKeyboard.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactAccessor$WhereOptions.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactAccessor.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactAccessorSdk5.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactManager$1.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactManager$2.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactManager$3.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactManager.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/plugin/softkeyboard/SoftKeyboard.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/dexedLibs/classes-54cfa7906944ec7d9e09b5afecf9c008.jar \

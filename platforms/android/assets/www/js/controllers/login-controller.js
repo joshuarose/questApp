@@ -1,4 +1,4 @@
-questApp.controller('login-controller', function ($scope, userService, smsService) {
+questApp.controller('login-controller', function ($scope, userService, smsService, $state) {
     $scope.error = "";
     $scope.email = "";
     $scope.password = "";
@@ -40,7 +40,7 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
         formValid = false;
       }
 
-      var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
+      var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace('+','').replace(/\s+/, "").trim();
       if (formattedPhone.length !== 10){
         toastr.error("Phone number must be valid 10 digit syntax");
         formValid = false;
@@ -61,7 +61,7 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
 
     $scope.register = function (email, password, username, phone) {
         if ($scope.validateInfo (email,password,phone,username)) {
-          var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace(' ', '');
+          var formattedPhone = phone.replace('(','').replace(')','').replace('-','').replace('+','').replace(/\s+/, "").trim();
           var promise = userService.register(email, password, username, formattedPhone);
           promise.then(function (user) {
             if (user){
@@ -94,6 +94,14 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
         }
       }
     ];
+
+    $scope.resetPassword = function () {
+      $state.go("tab.pwdreset")
+    };
+
+    $scope.changePassword = function () {
+      $state.go("tab.pwdchange")
+    };
 
     $scope.init = function () {
       if ($scope.user) {

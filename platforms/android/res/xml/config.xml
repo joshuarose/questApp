@@ -4,9 +4,6 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <feature name="SoftKeyboard">
-        <param name="android-package" value="de.phonostar.SoftKeyboard" />
-    </feature>
     <name>QuestApp</name>
     <description>
         Quest your friends to vent, share, dig, or challenege
@@ -23,6 +20,10 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
         <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Contacts">
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+        <param name="ios-package" value="CDVContacts" />
     </feature>
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -49,11 +50,24 @@
     <icon gap:platform="ios" height="72" src="icons/ios/icon-72.png" width="72" />
     <icon gap:platform="ios" height="114" src="icons/ios/icon_at_2x.png" width="114" />
     <icon gap:platform="ios" height="144" src="icons/ios/icon-72_at_2x.png" width="144" />
+    <feature name="http://api.phonegap.com/1.0/contacts" />
+    <gap:plugin name="org.apache.cordova.battery-status" />
+    <gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.media-capture" />
+    <gap:plugin name="org.apache.cordova.console" />
+    <gap:plugin name="org.apache.cordova.contacts" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.file-transfer" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="org.apache.cordova.globalization" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.media" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.vibration" />
     <access origin="*" />
-    <feature name="Contacts">
-        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
-    </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
 </widget>

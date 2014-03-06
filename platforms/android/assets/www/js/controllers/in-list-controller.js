@@ -26,10 +26,10 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     for (var i = 0; i < $scope.quests[index].recipients.length; i++){
       if ($scope.quests[index].recipients[i].user === userService.currentUser.username){
         if ($scope.quests[index].recipients[i].status === "new"){
-          return "?????????? - new";
+          return $scope.quests[index].title + " - new";
         }
         else if ($scope.quests[index].recipients[i].status === "abandoned"){
-          return "????????? - abandoned";
+          return $scope.quests[index].title + " - abandoned";
         }
         else if ($scope.quests[index].recipients[i].status === "fail"){
           return $scope.quests[index].title + " - fail";

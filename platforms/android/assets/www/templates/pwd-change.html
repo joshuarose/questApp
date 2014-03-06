@@ -1,0 +1,16 @@
+<ion-view title="'Password Change'" right-buttons="rightButtons" left-buttons="leftButtons">
+    <ion-content has-header="true" has-tabs="true" padding="true">
+        <div class="list list-inset">
+          <label class="item item-input">
+                <input ng-model="data.pass1" type="password" placeholder="New Password" />
+            </label>
+          <label class="item item-input">
+            <input ng-model="data.pass2" type="password" placeholder="Confirm Password" />
+          </label>
+        </div>
+
+        <div>
+          <button class="button button-block button-positive" ng-click="change()">Change Password</button>
+        </div>
+    </ion-content>
+</ion-view>

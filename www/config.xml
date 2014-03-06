@@ -11,7 +11,7 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
-    <preference name="prerendered-icon" value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="prerendered-icon" value="true" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <feature name="Device">

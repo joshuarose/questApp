@@ -18,12 +18,18 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
     recipients = [];
     for(var i = 0; i < $scope.sendList.length; i++) {
       (function(index){
-        var phoneQuery = $scope.sendList[index].phone[0].replace('(','').replace(')','').replace('-','').replace('+','').replace(/\s+/, "").trim();
-        dpd.users.get({ $or :[{email: {$regex : $scope.sendList[index].email[0], $options : 'i' }},{ phone: {$regex : "^" + phoneQuery, $options : 'i'} }]}, function(results, error) {
+        var phoneQuery = "9999999999";
+        if ($scope.sendList[index].phone.length > 0){
+          $scope.sendList[index].phone[0].replace('(','').replace(')','').replace('-','').replace('+','').replace(/\s+/, "").trim();
+        }
+        var emailQuery = "NoEmailEver@None.com";
+        if ($scope.sendList[index].email.length > 0){
+          emailQuery = $scope.sendList[index].email[0];
+        }
+        dpd.users.get({ $or :[{email: {$regex : emailQuery, $options : 'i' }},{ phone: {$regex : "^" + phoneQuery, $options : 'i'} }]}, function(results, error) {
           if (results.length > 0){
             var recipientMatch = results[0];
             recipients.push({"user" : recipientMatch.username, status : "new"});
-            $scope.notifyNonQuesters($scope.sendList[index], true);
           }
           else{
             $scope.notifyNonQuesters($scope.sendList[index], false);
@@ -69,18 +75,16 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
     $scope.loading.hide();
   };
 
-  $scope.notifyNonQuesters = function (unmatched, bl) {
+  $scope.notifyNonQuesters = function (unmatched) {
       if (unmatched.phone.length > 0){
-        var formattedPhone = unmatched.phone[0].replace('(','').replace(')','').replace('-','').replace('+','').replace(/\s+/, "").trim();
+        var formattedPhone = "";
+        if (unmatched.phone.length > 0){
+          unmatched.phone[0].replace('(','').replace(')','').replace('-','').replace('+','').replace(/\s+/, "").trim();
+        }
         if (formattedPhone.length > 10){
           formattedPhone = formattedPhone.substring(1,10);
         }
-        if(bl){
-          smsService.sendSMS(formattedPhone, "A friend has sent you a new quest! Get to it!");
-        }
-        else{
-          smsService.sendSMS(formattedPhone, "A friend has tried to send you a quest! Download QuestApp on your smart phone app store!");
-        }
+        smsService.sendSMS(formattedPhone, "A friend has tried to send you a quest! Download QuestApp on your smart phone app store!");
       }
   };
 
