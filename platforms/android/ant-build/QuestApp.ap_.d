@@ -134,9 +134,12 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/toastr/toastr.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/lib/js/xeditable/xeditable.min.js \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/de.phonostar.softkeyboard \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/org.apache.cordova.contacts \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/org.apache.cordova.statusbar \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/de.phonostar.softkeyboard/www \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/de.phonostar.softkeyboard/www/softkeyboard.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/org.apache.cordova.contacts/www \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/org.apache.cordova.contacts/www/Contact.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/plugins/org.apache.cordova.contacts/www/ContactAddress.js \

@@ -4,6 +4,9 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
+    <feature name="SoftKeyboard">
+        <param name="android-package" value="de.phonostar.SoftKeyboard" />
+    </feature>
     <name>QuestApp</name>
     <description>
         Quest your friends to vent, share, dig, or challenege
@@ -69,8 +72,6 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
+    <gap:plugin name="de.phonostar.softkeyboard" />
     <access origin="*" />
-    <feature name="SoftKeyboard">
-        <param name="android-package" value="de.phonostar.SoftKeyboard" />
-    </feature>
 </widget>

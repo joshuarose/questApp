@@ -194,6 +194,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
           $('#editbox').ScrollTo();
         }).on("blur", function () {
             SoftKeyboard.hide();
+            $(window).scrollTop(0);
           });
           //do something benign to ios
         };
