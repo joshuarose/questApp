@@ -6,8 +6,6 @@
 	objectVersion = 46;
 	objects = {
 /* Begin PBXBuildFile section */
-		026847EE42EC41788D7810A2 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE56D84672454095B9779DF0 /* CDVStatusBar.m */; };
-		0B8DA66FDB9D47E7BFC6E860 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFE9A79BB646418CA0282B /* CDVDevice.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
@@ -449,8 +447,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				0B8DA66FDB9D47E7BFC6E860 /* CDVDevice.m in Sources */,
-				026847EE42EC41788D7810A2 /* CDVStatusBar.m in Sources */,
 				DC67F963E72F4DD194F200A2 /* CDVContacts.m in Sources */,
 				216AB1E7A9274A92A2C5BE29 /* CDVContact.m in Sources */,
 			);

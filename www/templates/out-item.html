@@ -15,7 +15,7 @@
             <ul>
                 <div
                         class="col-xs-12 questionContainer"
-                        ng-repeat="question in questions track by $index | orderBy : creationtime">
+                        ng-repeat="question in questions | orderBy : 'creationtime'">
                     <div class="question clearfix">
                       <a
                         class="question-text pull-left"
@@ -30,7 +30,7 @@
                       </a>
                       <br/>
                       <div class="out-buttons pull-right">
-                        <button class="button button-assertive" ng-click="removeQuestion(question.id, $index)">
+                        <button class="button button-assertive" ng-click="removeQuestion(question.id, question)">
                           <i
                             class="ion-trash-a">
                           </i>
@@ -41,7 +41,7 @@
                     <div
                             class="col-xs-10 col-xs-offset-2 answerContainer"
                             ng-class="{true: 'bomb', false: 'correct'}[answer.bomb]"
-                            ng-repeat="answer in question.answers track by $index | orderBy : creationtime">
+                            ng-repeat="answer in question.answers | orderBy : 'creationtime'">
                         <div class="answer">
                             <a
                                     class="answer-text pull-left"
@@ -57,7 +57,7 @@
                             <br/>
                         </div>
                       <div class="out-buttons pull-right">
-                        <button class="button button-assertive pull-right" ng-click="removeAnswer(question, $index)">
+                        <button class="button button-assertive pull-right" ng-click="removeAnswer(question, answer)">
                           <i
                             class="ion-trash-a">
                           </i>
