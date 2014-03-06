@@ -1,14 +1,12 @@
 /**
  * Created by joshuarose on 1/8/14.
  */
-questApp.controller('tab-Controller', function ($scope, userService) {
+questApp.controller('taker-tab-Controller', function ($scope, userService) {
 
     $scope.newTakerCount = "";
-    $scope.newResultCount = "";
 
     $scope.init = function () {
       $scope.getNewCount();
-      $scope.getNewResultCount();
     };
 
     $scope.getNewCount = function () {
@@ -25,19 +23,12 @@ questApp.controller('tab-Controller', function ($scope, userService) {
       }
     };
 
-  $scope.getNewResultCount = function () {
-    if (userService.loggedIn){
-      dpd.results.get({owner: userService.currentUser.username, status : "new"}, function(results, error) {
-        if(error){
-          return;
-        }
-        if (results.length > 0){
-          $scope.newResultCount = results.length.toString();
-        }
-        $scope.$apply();
-      });
-    }
-  };
+  $scope.$on('tab.shown', function() {
+    $scope.init();
+  });
+  $scope.$on('tab.hidden', function() {
+    $scope.init();
+  });
 
   $scope.init();
 });

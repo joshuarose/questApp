@@ -83,7 +83,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
 
   $scope.addResult  = function () {
     if (resultCollection === null) {
-      resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : []};
+      resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : [], status : "new"};
     }
 
     var result = {question: $scope.activeQuestion.text, answer: $scope.activeAnswer, unchosen: []};
