@@ -83,6 +83,13 @@ module.exports = [
         "merges": [
             "Contact"
         ]
+    },
+    {
+        "file": "plugins/de.phonostar.softkeyboard/www/softkeyboard.js",
+        "id": "de.phonostar.softkeyboard.SoftKeyboard",
+        "clobbers": [
+            "SoftKeyboard"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -90,7 +97,8 @@ module.exports.metadata =
 {
     "org.apache.cordova.device": "0.2.8",
     "org.apache.cordova.statusbar": "0.1.3",
-    "org.apache.cordova.contacts": "0.2.9"
+    "org.apache.cordova.contacts": "0.2.9",
+    "de.phonostar.softkeyboard": "0.1"
 }
 // BOTTOM OF METADATA
 });

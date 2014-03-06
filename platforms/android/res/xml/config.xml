@@ -70,4 +70,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <access origin="*" />
+    <feature name="SoftKeyboard">
+        <param name="android-package" value="de.phonostar.SoftKeyboard" />
+    </feature>
 </widget>
