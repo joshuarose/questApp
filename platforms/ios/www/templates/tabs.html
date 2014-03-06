@@ -1,8 +1,8 @@
-<ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-dark">
+<ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-dark" ng-controller="tab-Controller">
   <ion-tab title="Maker" icon="ion-ios7-lightbulb-outline" href="#/tab/maker">
       <ion-nav-view name="maker-tab"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="Taker" icon="ion-ios7-stopwatch-outline" href="#/tab/taker">
+  <ion-tab badge="newTakerCount" badge-style="badge-assertive" title="Taker" icon="ion-ios7-stopwatch-outline" href="#/tab/taker">
       <ion-nav-view name="taker-tab"></ion-nav-view>
   </ion-tab>
   <ion-tab title="Results" icon="ion-pie-graph" href="#/tab/results">
