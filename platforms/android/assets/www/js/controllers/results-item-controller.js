@@ -10,9 +10,14 @@ questApp.controller('results-item-controller', function($scope, $stateParams) {
           return;
         }
         $scope.result = results;
+        $scope.result.status = "old";
+        dpd.results.put($scope.result.id, $scope.result, function (results, error){
+
+        });
         $scope.pageTitle = $scope.result.questtitle + "-" + $scope.result.taker;
         $scope.$apply();
       });
+
   };
 
   $scope.init();

@@ -191,10 +191,10 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       if(isAndroid) {
         $('#editbox').on("focus", function () {
           SoftKeyboard.show();
-          $('#editbox').ScrollTo();
+          $('#editbox').scrollTop($('#editbox').scrollTop());
         }).on("blur", function () {
             SoftKeyboard.hide();
-            $(window).scrollTop(0);
+//            $(window).scrollTop(0);
           });
           //do something benign to ios
         };

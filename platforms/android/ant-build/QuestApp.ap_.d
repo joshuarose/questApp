@@ -50,7 +50,6 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/app.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services \
-/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/friends-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/in-item-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/in-list-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/login-controller.js \
@@ -59,9 +58,11 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/out-list-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/pwd-change-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/pwd-reset-controller.js \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/result-tab-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/results-item-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/results-list-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/send-controller.js \
+/Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/controllers/taker-tab-controller.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services/quest-service.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services/sms-service.js \
 /Users/joshuarose/Documents/source/questApp/platforms/android/assets/www/js/services/user-service.js \
