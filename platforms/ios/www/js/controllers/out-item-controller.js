@@ -1,7 +1,7 @@
 /**
  * Created by joshuarose on 1/7/14.
  */
-questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams, $state) {
+questApp.controller('out-item-controller', function($scope, questService, userService, $stateParams, $state, $anchorScroll, $location, $ionicScrollDelegate) {
 
     $scope.quest = null;
     $scope.questions = null;
@@ -189,14 +189,18 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
       var ua = navigator.userAgent.toLowerCase();
       var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
       if(isAndroid) {
+        var old = $location.hash();
         $('#editbox').on("focus", function () {
           SoftKeyboard.show();
-          $('#editbox').scrollTop($('#editbox').scrollTop());
+          old = $location.hash();
+          $location.hash('editbox');
+          $ionicScrollDelegate.anchorScroll();
+
         }).on("blur", function () {
             SoftKeyboard.hide();
-//            $(window).scrollTop(0);
+            $location.hash(old);
+            $ionicScrollDelegate.anchorScroll();
           });
-          //do something benign to ios
         };
       }
 

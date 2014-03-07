@@ -13,6 +13,11 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/openspaceapps/quest/R$string.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/openspaceapps/quest/R$xml.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/openspaceapps/quest/R.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/urbanairship/phonegap/PushAutopilot$AirshipOptions.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/urbanairship/phonegap/PushAutopilot.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/urbanairship/phonegap/PushNotificationPlugin$1.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/urbanairship/phonegap/PushNotificationPlugin.class \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/com/urbanairship/phonegap/PushReceiver.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/de/phonostar/SoftKeyboard.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactAccessor$WhereOptions.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/contacts/ContactAccessor.class \
@@ -24,3 +29,4 @@
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/classes/org/apache/cordova/plugin/softkeyboard/SoftKeyboard.class \
 /Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/dexedLibs/classes-54cfa7906944ec7d9e09b5afecf9c008.jar \
+/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/dexedLibs/urbanairship-lib-3.3.1-2555bda581622c690c9188504cc4c3e0.jar \

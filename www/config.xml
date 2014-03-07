@@ -69,5 +69,13 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="de.phonostar.softkeyboard" />
+    <preference name="com.urbanairship.production_app_key" value="Your production app key" />
+    <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
+    <preference name="com.urbanairship.development_app_key" value="Your development app key" />
+    <preference name="com.urbanairship.development_app_secret" value="Your development app secret" />
+    <preference name="com.urbanairship.in_production" value="false" />
+    <preference name="com.urbanairship.gcm_sender" value="Android only: Your GCM sender id" />
+    <preference name="com.urbanairship.enable_push_onlaunch" value="true" />
+
     <access origin="*" />
 </widget>
