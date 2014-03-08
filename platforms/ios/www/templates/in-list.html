@@ -1,30 +1,29 @@
-<ion-view title="'Taker'" hide-back-button="true" back-button-label="">
+<ion-view title="'Taker'" hide-back-button="true" back-button-label="" left-buttons="leftButtons">
     <ion-content has-header="true" has-tabs="true" padding="true">
-      <div ng-show="empty">You don't have any quests to take, tell your friends to send you one!</div>
-      <ion-list show-delete="true" on-delete="onItemDelete(item)" can-swipe="true">
+      <ion-list show-delete="showDelete" on-delete="onItemDelete(item)" can-swipe="true">
         <div class="item item-divider">
           New Quests
         </div>
-        <ion-item ng-repeat="quest in newQuests" ng-click="openQuest(quest)"> <!--ui-sref="tab.takerid({id: quest.id})" -->
-          {{quest.title}}
+        <ion-item ng-repeat="item in newQuests" item ="item" ng-click="openQuest(item)">
+          {{item.title}}
         </ion-item>
         <div class="item item-divider">
           Complete Quests
         </div>
-        <ion-item ng-repeat="quest in completeQuests" ng-click="openQuest(quest)"> <!--ui-sref="tab.takerid({id: quest.id})" -->
-          {{quest.title}}
+        <ion-item ng-repeat="item in completedQuests" item="item" ng-click="openQuest(item)">
+          {{item.title}}
         </ion-item>
         <div class="item item-divider">
           Failed Quests
         </div>
-        <ion-item ng-repeat="quest in failedQuests" ng-click="openQuest(quest)">
-          {{quest.title}}
+        <ion-item ng-repeat="item in failedQuests" item="item" ng-click="openQuest(item)">
+          {{item.title}}
         </ion-item>
         <div class="item item-divider">
           Abandoned Quests
         </div>
-        <ion-item ng-repeat="quest in abandonedQuests" ng-click="openQuest(quest)">
-          {{quest.title}}
+        <ion-item ng-repeat="item in abandonedQuests" item="item" ng-click="openQuest(item)">
+          {{item.title}}
         </ion-item>
       </ion-list>
     </ion-content>
