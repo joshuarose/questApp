@@ -14,6 +14,7 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
           if (user){
             $scope.user = user;
             $scope.loggedIn = true;
+            $scope.$emit('tab.update', null);
           }
         }, function (error) {
           toastr.clear();
@@ -67,6 +68,7 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
             if (user){
               $scope.user = user;
               $scope.loggedIn = true;
+              $scope.$emit('tab.update', null);
               smsService.sendSMS(formattedPhone, "Thanks for registering for quest " + username + "!");
             }
           }, function (error) {
@@ -107,6 +109,7 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
       if ($scope.user) {
         $scope.loggedIn = true;
         $scope.user = userService.currentUser;
+        $scope.$emit('tab.update', null);
       }
       else{
         $scope.loggedIn = false;

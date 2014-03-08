@@ -2,6 +2,10 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
   $scope.quests = "";
   $scope.loggedIn = false;
   $scope.empty = true;
+  $scope.newQuests = [];
+  $scope.completeQuests = [];
+  $scope.failedQuests = [];
+  $scope.abandonedQuests = [];
 
   $scope.init = function () {
     if (userService.loggedIn) {
@@ -13,7 +17,10 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
         $scope.quests = results;
         if (results.length > 0){
           $scope.empty = false;
-        }
+            for (var x = 0; x < results.length; x++) {
+              $scope.sortQuest(results[x]);
+            }
+          }
         $scope.$apply();
       });
     }
@@ -22,30 +29,35 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     }
   };
 
-  $scope.getQuest = function (index) {
-    for (var i = 0; i < $scope.quests[index].recipients.length; i++){
-      if ($scope.quests[index].recipients[i].user === userService.currentUser.username){
-        if ($scope.quests[index].recipients[i].status === "new"){
-          return $scope.quests[index].title + " - new";
+  $scope.searchFilter = function (obj, status) {
+    var re = new RegExp(status, 'i');
+    return !$scope.searchText || re.test(obj.status);
+  };
+
+  $scope.sortQuest = function (quest) {
+    for (var i = 0; i < quest.recipients.length; i++){
+      if (quest.recipients[i].user === userService.currentUser.username){
+        if (quest.recipients[i].status === "new"){
+          $scope.newQuests.push(quest);
         }
-        else if ($scope.quests[index].recipients[i].status === "abandoned"){
-          return $scope.quests[index].title + " - abandoned";
+        else if (quest.recipients[i].status === "abandoned"){
+          $scope.abandonedQuests.push(quest);
         }
-        else if ($scope.quests[index].recipients[i].status === "fail"){
-          return $scope.quests[index].title + " - fail";
+        else if (quest.recipients[i].status === "fail"){
+          $scope.failedQuests.push(quest);
         }
-        else if ($scope.quests[index].recipients[i].status === "complete"){
-          return $scope.quests[index].title + " - complete";
+        else if (quest.recipients[i].status === "complete"){
+          $scope.completeQuests.push(quest);
         }
       }
     }
   };
 
-  $scope.openQuest = function (index) {
-    for (var i = 0; i < $scope.quests[index].recipients.length; i++){
-      if ($scope.quests[index].recipients[i].user === userService.currentUser.username){
-        if ($scope.quests[index].recipients[i].status === "new"){
-          $state.go('tab.takerid',{ id: $scope.quests[index].id});
+  $scope.openQuest = function (quest) {
+    for (var i = 0; i < quest.recipients.length; i++){
+      if (quest.recipients[i].user === userService.currentUser.username){
+        if (quest.recipients[i].status === "new"){
+          $state.go('tab.takerid',{ id: quest.id});
         }
       }
     }
