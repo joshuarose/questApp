@@ -34,6 +34,18 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     return !$scope.searchText || re.test(obj.status);
   };
 
+  $scope.onItemDelete = function (quest) {
+    //find recipient from
+    for (var i = 0; i < quest.recipients.length; i++) {
+      if (quest.recipients[i].user === userService.currentUser.username) {
+        quest.recipients[i].splice(0,1);
+        dpd.quests.put(quest.id, quest, function (result, error) {
+          $scope.init();
+        });
+      }
+    }
+  };
+
   $scope.sortQuest = function (quest) {
     for (var i = 0; i < quest.recipients.length; i++){
       if (quest.recipients[i].user === userService.currentUser.username){

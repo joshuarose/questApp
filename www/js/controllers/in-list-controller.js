@@ -3,9 +3,10 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
   $scope.loggedIn = false;
   $scope.empty = true;
   $scope.newQuests = [];
-  $scope.completeQuests = [];
+  $scope.completedQuests = [];
   $scope.failedQuests = [];
   $scope.abandonedQuests = [];
+  $scope.showDelete = false;
 
   $scope.init = function () {
     if (userService.loggedIn) {
@@ -29,9 +30,56 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     }
   };
 
+  $scope.leftButtons = [
+    {
+      type: "button-positive",
+      content: "Edit",
+      tap : function (e) {
+        if ($scope.showDelete){
+          $scope.showDelete = false;
+        }
+        else{
+          $scope.showDelete = true;
+        }
+      }
+    }
+  ];
+
   $scope.searchFilter = function (obj, status) {
     var re = new RegExp(status, 'i');
     return !$scope.searchText || re.test(obj.status);
+  };
+
+  $scope.onItemDelete = function (item) {
+    //find recipient from
+    for (var i = 0; i < item.recipients.length; i++) {
+      if (item.recipients[i].user === userService.currentUser.username) {
+        item.recipients.splice(i,1);
+        dpd.quests.put(item.id, item, function (result, error) {
+        });
+        var allIndex = $scope.quests.indexOf(item);
+        var newIndex = $scope.newQuests.indexOf(item);
+        var completeIndex = $scope.completedQuests.indexOf(item);
+        var failedIndex = $scope.failedQuests.indexOf(item);
+        var abandonIndex = $scope.abandonedQuests.indexOf(item);
+        if (allIndex) {
+         $scope.quests.splice(allIndex, 1);
+        }
+        if (newIndex) {
+          $scope.newQuests.splice(newIndex, 1);
+        }
+        if (completeIndex) {
+          $scope.completedQuests.splice(completeIndex, 1);
+        }
+        if (failedIndex) {
+          $scope.failedQuests.splice(failedIndex, 1);
+        }
+        if (abandonIndex) {
+          $scope.newQuests.splice(abandonIndex, 1);
+        }
+      }
+    }
+    $scope.$apply();
   };
 
   $scope.sortQuest = function (quest) {
@@ -47,7 +95,7 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
           $scope.failedQuests.push(quest);
         }
         else if (quest.recipients[i].status === "complete"){
-          $scope.completeQuests.push(quest);
+          $scope.completedQuests.push(quest);
         }
       }
     }

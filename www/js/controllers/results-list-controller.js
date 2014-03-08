@@ -5,6 +5,7 @@ questApp.controller('results-list-controller', function($scope, userService, $st
   $scope.results = "";
   $scope.loggedIn = false;
   $scope.empty = true;
+  $scope.showDelete = false;
 
   $scope.init = function () {
     if (userService.loggedIn) {
@@ -24,6 +25,29 @@ questApp.controller('results-list-controller', function($scope, userService, $st
       $state.go('tab.login');
     }
   };
+
+  $scope.deleteResult = function (item) {
+    dpd.results.del(item.id, function (result, error){
+
+    });
+    $scope.results.splice($scope.results.indexOf(item), 1);
+    $scope.$apply();
+  };
+
+  $scope.leftButtons = [
+    {
+      type: "button-positive",
+      content: "Edit",
+      tap : function (e) {
+        if ($scope.showDelete){
+          $scope.showDelete = false;
+        }
+        else{
+          $scope.showDelete = true;
+        }
+      }
+    }
+  ];
 
   $scope.init();
 });
