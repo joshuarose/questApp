@@ -6,8 +6,13 @@ questApp.controller('results-list-controller', function($scope, userService, $st
   $scope.loggedIn = false;
   $scope.empty = true;
   $scope.showDelete = false;
+  $scope.offline = false;
 
   $scope.init = function () {
+    if (dpd === undefined){
+      $scope.offline = true;
+      return;
+    }
     if (userService.loggedIn) {
       $scope.loggedIn = true;
       dpd.results.get({owner: userService.currentUser.username }, function(results, error) {

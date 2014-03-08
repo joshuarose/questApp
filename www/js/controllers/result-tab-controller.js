@@ -4,8 +4,13 @@
 questApp.controller('result-tab-Controller', function ($scope, userService, tabService) {
 
     $scope.newResultCount = "";
+    $scope.offline = false;
 
     $scope.init = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       var promise = tabService.getNewResultCount();
       promise.then(function(result){
         $scope.newResultCount = result;

@@ -11,6 +11,7 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   $scope.sendList = [];
   $scope.selected = "";
   var unmatched = [];
+  $scope.offline = false;
 
   $scope.updateRecipients = function () {
     //if there are  commas
@@ -143,6 +144,10 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   };
 
   $scope.init = function () {
+    if (dpd === undefined){
+      $scope.offline = true;
+      return;
+    }
     function onSuccess(contacts) {
       for (var i = 0; i < contacts.length; i += 1) {
         var newContact = {};

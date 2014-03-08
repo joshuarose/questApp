@@ -50,35 +50,74 @@ questApp.controller('in-list-controller', function ($scope, userService, $state)
     return !$scope.searchText || re.test(obj.status);
   };
 
-  $scope.onItemDelete = function (item) {
+
+
+  $scope.onNewItemDelete = function (item) {
+    for (var i = 0; i < item.recipients.length; i++) {
+      if (item.recipients[i].user === userService.currentUser.username) {
+        item.recipients.splice(i,1);
+      }
+    }
+
+    dpd.quests.put(item.id, item, function (result, error) {
+    });
+
+
+    $scope.quests.splice($scope.quests.indexOf(item), 1);
+    $scope.newQuests.splice($scope.newQuests.indexOf(item), 1);
+
+    $scope.$apply();
+  };
+
+  $scope.onCompleteItemDelete = function (item) {
     //find recipient from
     for (var i = 0; i < item.recipients.length; i++) {
       if (item.recipients[i].user === userService.currentUser.username) {
         item.recipients.splice(i,1);
-        dpd.quests.put(item.id, item, function (result, error) {
-        });
-        var allIndex = $scope.quests.indexOf(item);
-        var newIndex = $scope.newQuests.indexOf(item);
-        var completeIndex = $scope.completedQuests.indexOf(item);
-        var failedIndex = $scope.failedQuests.indexOf(item);
-        var abandonIndex = $scope.abandonedQuests.indexOf(item);
-        if (allIndex) {
-         $scope.quests.splice(allIndex, 1);
-        }
-        if (newIndex) {
-          $scope.newQuests.splice(newIndex, 1);
-        }
-        if (completeIndex) {
-          $scope.completedQuests.splice(completeIndex, 1);
-        }
-        if (failedIndex) {
-          $scope.failedQuests.splice(failedIndex, 1);
-        }
-        if (abandonIndex) {
-          $scope.newQuests.splice(abandonIndex, 1);
-        }
       }
     }
+
+    dpd.quests.put(item.id, item, function (result, error) {
+    });
+
+
+    $scope.quests.splice($scope.quests.indexOf(item), 1);
+    $scope.completedQuests.splice($scope.completedQuests.indexOf(item), 1);
+
+    $scope.$apply();
+  };
+
+  $scope.onFailedItemDelete = function (item) {
+    for (var i = 0; i < item.recipients.length; i++) {
+      if (item.recipients[i].user === userService.currentUser.username) {
+        item.recipients.splice(i,1);
+      }
+    }
+
+    dpd.quests.put(item.id, item, function (result, error) {
+    });
+
+
+    $scope.quests.splice($scope.quests.indexOf(item), 1);
+    $scope.failedQuests.splice($scope.failedQuests.indexOf(item), 1);
+
+    $scope.$apply();
+  };
+
+  $scope.onAbandonedItemDelete = function (item) {
+    for (var i = 0; i < item.recipients.length; i++) {
+      if (item.recipients[i].user === userService.currentUser.username) {
+        item.recipients.splice(i,1);
+      }
+    }
+
+    dpd.quests.put(item.id, item, function (result, error) {
+    });
+
+
+    $scope.quests.splice($scope.quests.indexOf(item), 1);
+    $scope.abandonedQuests.splice($scope.abandonedQuests.indexOf(item), 1);
+
     $scope.$apply();
   };
 

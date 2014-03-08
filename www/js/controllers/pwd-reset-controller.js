@@ -1,7 +1,12 @@
 questApp.controller('pwd-reset-controller', function ($scope, userService, smsService, $state) {
     $scope.data = {};
+    $scope.offline = false;
 
     $scope.reset = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       var query = {"email":  {$regex : $scope.data.email, $options : 'i'}};
 
       dpd.users.get(query, function (result) {

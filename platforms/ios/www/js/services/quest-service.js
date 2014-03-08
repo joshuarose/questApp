@@ -6,6 +6,9 @@ questApp.factory('questService', ['userService', function (userService) {
     var createdQuests = null;
 
     factory.init = function () {
+      if (dpd === undefined){
+        return;
+      }
       if (userService.loggedIn) {
         dpd.quests.get(function(quests, error){
          if (error){

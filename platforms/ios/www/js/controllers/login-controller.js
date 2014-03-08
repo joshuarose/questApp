@@ -7,6 +7,7 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
     $scope.newUser = false;
     $scope.user = userService.currentUser;
     $scope.loggedIn = false;
+    $scope.offline = false;
 
     $scope.login = function (email, password) {
         var promise = userService.login(email, password);
@@ -106,6 +107,10 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
     };
 
     $scope.init = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       if ($scope.user) {
         $scope.loggedIn = true;
         $scope.user = userService.currentUser;

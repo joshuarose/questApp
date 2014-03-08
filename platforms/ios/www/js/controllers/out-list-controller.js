@@ -3,8 +3,13 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
     $scope.loggedIn = false;
     $scope.empty = true;
     $scope.showDelete = false;
+    $scope.offline = false;
 
     $scope.init = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       if (userService.loggedIn) {
         $scope.loggedIn = true;
         dpd.quests.get({owner: userService.currentUser.username}, function(results, error) {

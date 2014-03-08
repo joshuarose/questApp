@@ -1,7 +1,12 @@
 questApp.controller('pwd-change-controller', function ($scope, userService, $state) {
     $scope.data = {};
+    $scope.offline = false;
 
     $scope.change = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       if (!$scope.data.pass1 || $scope.data.pass1.length < 6){
         toastr.error("Password must be at least 6 characters");
         return;
