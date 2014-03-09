@@ -23,6 +23,12 @@
     <feature name="Contacts">
         <param name="ios-package" value="CDVContacts" />
     </feature>
+    <feature name="GAPlugin" >
+        < param name="android-package" value="com.adobe.plugins.GAPlugin"/>
+    </feature>
+    <feature name="GAPlugin" >
+        < param name="ios-package" value="com.adobe.plugins.GAPlugin"/>
+    </feature>
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -69,6 +75,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="de.phonostar.softkeyboard" />
+    <gap:plugin name="com.adobe.plugins.gaplugin" />
     <preference name="com.urbanairship.production_app_key" value="Your production app key" />
     <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
     <preference name="com.urbanairship.development_app_key" value="Your development app key" />

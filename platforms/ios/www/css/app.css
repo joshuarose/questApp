@@ -148,7 +148,20 @@ a.editable-click:hover {
     margin-bottom: 2px;
 }
 .reveal{
-    font-size: 2em;
+    font-family: "bree",sans-serif;
+    font-size: 1.2em;
+    margin-left:auto;
+    margin-right:auto;
+}
+.reveal-text{
+    margin-left:5%;
+    display: block;
+    vertical-align: middle;
+}
+.reveal-image{
+    margin-left:20%;
+    display: block;
+    vertical-align: middle;
 }
 input[type=checkbox] + label {
     display: inline-block;
