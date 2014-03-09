@@ -193,3 +193,8 @@ label{
 .recipient-entry{
     border : 1px solid #666666;
 }
+.ion-tab a{
+    color: #ffffff !important;
+    background-image:none  !important;
+    text-decoration: none;
+}
