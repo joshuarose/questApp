@@ -42,7 +42,7 @@ questApp.controller('results-list-controller', function($scope, userService, $st
   $scope.leftButtons = [
     {
       type: "button-positive",
-      content: "Edit",
+      content: "<i class='ion-edit'></i>",
       tap : function (e) {
         if ($scope.showDelete){
           $scope.showDelete = false;

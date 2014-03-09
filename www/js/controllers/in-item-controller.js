@@ -55,7 +55,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   $scope.leftButtons = [
     {
       type: 'button-positive',
-      content: 'Abandon',
+      content: "<i class='ion-close'></i>",
       tap: function(e) {
         for (var i = 0; i < $scope.quest.recipients.length; i++){
           if ($scope.quest.recipients[i].user === userService.currentUser.username){

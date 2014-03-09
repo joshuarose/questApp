@@ -37,7 +37,7 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
   $scope.rightButtons = [
     {
       type: "button-positive",
-      content: "New",
+      content: "<i class='ion-plus-round'></i>",
       tap : function (e) {
         $state.go('tab.makerid', {id : createGuid()});
       }
@@ -47,7 +47,7 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
   $scope.leftButtons = [
     {
       type: "button-positive",
-      content: "Edit",
+      content: "<i class='ion-edit'></i>",
       tap : function (e) {
         if ($scope.showDelete){
           $scope.showDelete = false;

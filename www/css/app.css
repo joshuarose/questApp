@@ -37,7 +37,7 @@ a.editable-click:hover {
 .questionTaker {
     padding: 10px;
     padding-bottom: 15px;
-    background-color: #1c92fd;
+    background-color: #2570A8;
     border-radius: 5px;
 }
 .answerContainer{
@@ -124,7 +124,7 @@ a.editable-click:hover {
     margin-bottom: 2px;
 }
 .unselected {
-    background-color: #a2d4ff;
+    background-color: #ACACAC;
     border-radius: 5px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
@@ -140,7 +140,7 @@ a.editable-click:hover {
     margin-bottom: 2px;
 }
 .selected {
-    background-color: #77DD77;
+    background-color: #16387C;
     border-radius: 5px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
@@ -197,4 +197,25 @@ a.tab-item {
     color: #ffffff !important;
     background-image: none !important;
     text-decoration: none !important;
+}
+i.ion-edit, i.ion-plus-round, i.ion-paper-airplane, i.ion-close{
+    font-size: 25px;
+    vertical-align: middle;
+}
+div.left-buttons button, div.right-buttons button{
+    border-color: transparent !important;
+    background-color: transparent !important;
+    width: 150%;
+}
+.logout-btn{
+    background-color: #BA0C0D !important;
+    border-color: #BA0C0D !important;
+}
+.change-btn{
+    background-color: #004276 !important;
+    border-color: #004276 !important;
+}
+.confirm-btn{
+    background-color: #557D58 !important;
+    border-color: #557D58 !important;
 }

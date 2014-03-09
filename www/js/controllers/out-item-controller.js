@@ -102,7 +102,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     $scope.rightButtons = [
       {
         type: "button-positive",
-        content: "Send",
+        content: "<i class='ion-paper-airplane'></i>",
         tap : function (e) {
           var valid = $scope.validateQuest();
           if (valid){

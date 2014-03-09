@@ -105,7 +105,7 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   $scope.rightButtons = [
     {
       type: "button-positive",
-      content: "Send",
+      content: "<i class='ion-paper-airplane'></i>",
       tap : function (e) {
         $scope.showWait();
         $scope.updateRecipients().then(function (){
