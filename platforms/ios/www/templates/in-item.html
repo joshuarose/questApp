@@ -23,8 +23,8 @@
           </div>
         </div>
         <br/>
-        <button ng-show="selected" class="col-xs-12 button button-positive pull-right" ng-click="getNextQuestion()">
-          Confirm
+        <button ng-show="selected" class="col-xs-12 button button-positive confirm-btn" ng-click="getNextQuestion()">
+          Confirm <i class="ion-checkmark-circled"></i>
         </button>
       </div>
     </div>
@@ -32,10 +32,15 @@
     <div>
       <br/>
     </div>
-    <button ng-show="reveal" class="col-xs-12 button button-positive" ng-click="endQuest()">
-      Finish
+    <div ng-show="reveal" ng-show="fail" class="list list-inset">
+      <label class="item item-input">
+        <input id="topInput" ng-model="quest.title" type="text" placeholder="Message to Quest Giver">
+      </label>
+    </div>
+    <button ng-show="reveal" class="col-xs-12 button button-positive confirm-btn" ng-click="endQuest()">
+      Finish <i class="ion-icecream"></i>
     </button>
-    <button ng-show="fail" class="col-xs-12 button button-positive" ng-click="endQuest()">
+    <button ng-show="fail" class="col-xs-12 button button-positive fail-btn" ng-click="endQuest()">
       Finish
     </button>
 

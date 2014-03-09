@@ -86,18 +86,6 @@ questApp.controller('login-controller', function ($scope, userService, smsServic
       $scope.user = null;
     };
 
-    $scope.rightButtons = [
-      {
-        type: "button-positive",
-        content: "Log Out",
-        tap: function (e) {
-          $scope.loggedIn = false;
-          $scope.user = null;
-          $scope.logOut();
-        }
-      }
-    ];
-
     $scope.resetPassword = function () {
       $state.go("tab.pwdreset")
     };
