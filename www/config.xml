@@ -69,6 +69,5 @@
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="de.phonostar.softkeyboard" />
     <gap:plugin name="com.phonegap.plugins.pushplugin" />
-
     <access origin="*" />
 </widget>

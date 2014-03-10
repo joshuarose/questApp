@@ -21,15 +21,12 @@
     <preference name="DisallowOverscroll" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
         <param name="ios-package" value="CDVDevice" />
     </feature>
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
         <param name="ios-package" value="CDVContacts" />
-    </feature>
-    <feature name="GAPlugin">
-        <param name="android-package" value="com.adobe.plugins.GAPlugin" />
-        <param name="ios-package" value="com.adobe.plugins.GAPlugin" />
     </feature>
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -76,6 +73,6 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="de.phonostar.softkeyboard" />
-    <gap:plugin name="com.adobe.plugins.pushplugin" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" />
     <access origin="*" />
 </widget>

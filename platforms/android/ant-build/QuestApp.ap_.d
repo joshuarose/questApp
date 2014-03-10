@@ -115,8 +115,11 @@
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/lib/js/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/lib/js/xeditable/xeditable.min.js \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin \
+/Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin/www \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js \
+/Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
+/Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/res/icon \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/res/icon/android \
 /Users/joshuarose/Documents/source/questapp/platforms/android/assets/www/res/icon/bada \
