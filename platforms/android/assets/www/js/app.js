@@ -112,29 +112,6 @@ questApp.run(function (){
   ionic.Platform.ready(function(){
     var device = ionic.Platform.device();
     var pushNotification = window.plugins.pushNotification;
-    // result contains any message sent from the plugin call
-
-    if ( device.platform == 'android' || device.platform == 'Android' )
-    {
-      pushNotification.register(
-        successHandler,
-        errorHandler, {
-          "senderID":"635140378165",
-          "ecb":"onNotificationGCM"
-        });
-    }
-    else
-    {
-      pushNotification.register(
-        tokenHandler,
-        errorHandler, {
-          "badge":"true",
-          "sound":"true",
-          "alert":"true",
-          "ecb":"onNotificationAPN"
-        });
-    }
-
     function successHandler (result) {
       alert('result = ' + result);
     }
@@ -163,8 +140,8 @@ questApp.run(function (){
     }
 
 // Android
-    function onNotificationGCM(e) {
-     alert('EVENT -> RECEIVED:' + e.event);
+    window.onNotificationGCM = function onNotificationGCM(e) {
+      alert('EVENT -> RECEIVED:' + e.event);
 
       switch( e.event )
       {
@@ -214,6 +191,36 @@ questApp.run(function (){
           break;
       }
     }
+    // result contains any message sent from the plugin call
+
+    function tokenHandler (result) {
+      alert('token: '+ result);
+      // Your iOS push server needs to know the token before it can push to this device
+      // here is where you might want to send it the token for later use.
+    }
+
+    if ( device.platform == 'android' || device.platform == 'Android' )
+    {
+      pushNotification.register(
+        successHandler,
+        errorHandler, {
+          "senderID":"635140378165",
+          "ecb":"onNotificationGCM"
+        });
+    }
+    else
+    {
+      pushNotification.register(
+        tokenHandler,
+        errorHandler, {
+          "badge":"true",
+          "sound":"true",
+          "alert":"true",
+          "ecb":"onNotificationAPN"
+        });
+    }
+
+
   });
 });
 
