@@ -96,4 +96,10 @@
     <preference name="com.urbanairship.gcm_sender" value="Android only: Your GCM sender id" />
     <preference name="com.urbanairship.enable_push_onlaunch" value="true" />
     <access origin="*" />
+    <feature name="PushPlugin">
+        <param name="ios-package" value="PushPlugin" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
 </widget>

@@ -1,5 +1,6 @@
 <ion-view title="pageTitle">
   <ion-content has-header="true" has-tabs="true" padding="true">
+    <div class="well reveal"><p>Message: {{result.Message}}</p></div>
     <div ng-repeat="res in result.answers">
       <div class="col-xs-12 questionContainer" >
         <div class="question"><p class="question-text">{{res.question}}</p></div>

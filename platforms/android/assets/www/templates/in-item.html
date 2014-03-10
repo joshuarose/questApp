@@ -1,11 +1,13 @@
 <ion-view title="'Taker'" left-buttons="leftButtons" hide-back-button="true" back-button-label="">
   <ion-content has-header="true" has-tabs="true" padding="true">
-    <div class="reveal" ng-show="reveal">
-      <p>Quest by : {{quest.owner}}</p>
-      <br/>
-      <p>Message : {{quest.completeMsg}}</p>
-      <br/>
-      <img src="{{getGravatar(sender.email)}}">
+    <div class="well reveal" ng-show="reveal">
+      <div class="reveal-text">
+        <p>Quest by : {{quest.owner}}</p>
+        <p>Message : {{quest.completeMsg}}</p>
+      </div>
+      <div class="reveal-image">
+        <img src="{{getGravatar(sender.email)}}">
+      </div>
     </div>
     <div class="reveal" ng-show="fail">
       <p>You have failed in your quest...</p>
@@ -23,19 +25,23 @@
           </div>
         </div>
         <br/>
-        <button ng-show="selected" class="col-xs-12 button button-positive pull-right" ng-click="getNextQuestion()">
-          Confirm
+        <button ng-show="selected" class="col-xs-12 button button-positive confirm-btn" ng-click="getNextQuestion()">
+          Confirm <i class="ion-checkmark-circled"></i>
         </button>
       </div>
     </div>
-
-    <div>
-      <br/>
+    <div class="list list-inset">
+      <label ng-show="reveal" class="item item-input">
+        <input ng-model="resultCollection.Message" type="text" placeholder="Message to Quest Giver">
+      </label>
+      <label ng-show="fail" class="item item-input">
+        <input ng-model="resultCollection.Message" type="text" placeholder="Message to Quest Giver">
+      </label>
     </div>
-    <button ng-show="reveal" class="col-xs-12 button button-positive" ng-click="endQuest()">
-      Finish
+    <button ng-show="reveal" class="col-xs-12 button button-positive confirm-btn" ng-click="endQuest()">
+      Finish <i class="ion-icecream"></i>
     </button>
-    <button ng-show="fail" class="col-xs-12 button button-positive" ng-click="endQuest()">
+    <button ng-show="fail" class="col-xs-12 button button-positive fail-btn" ng-click="endQuest()">
       Finish
     </button>
 

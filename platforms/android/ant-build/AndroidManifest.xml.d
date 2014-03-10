@@ -1,2 +1,2 @@
-/Users/joshuarose/Documents/source/questApp/platforms/android/ant-build/AndroidManifest.xml : \
-/Users/joshuarose/Documents/source/questApp/platforms/android/AndroidManifest.xml \
+/Users/joshuarose/Documents/source/questapp/platforms/android/ant-build/AndroidManifest.xml : \
+/Users/joshuarose/Documents/source/questapp/platforms/android/AndroidManifest.xml \

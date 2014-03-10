@@ -27,9 +27,9 @@
             </li>
         </ul>
         <div ng-hide="loggedIn">
-          <button ng-hide="newUser" class="button button-block button-positive" ng-click="login(username, password)">Login</button>
-          <button ng-show="newUser" class="button button-block button-positive" ng-click="register(email, password, username, phone)">Register</button>
-          <button class="button button-block button-positive" ng-click="resetPassword()">Reset Password</button>
+          <button ng-hide="newUser" class="button button-block button-positive login-btn" ng-click="login(username, password)">Login</button>
+          <button ng-show="newUser" class="button button-block button-positive register-btn" ng-click="register(email, password, username, phone)">Register</button>
+          <button class="button button-block button-positive reset-btn" ng-click="resetPassword()">Reset Password</button>
         </div>
       <div ng-show="loggedIn">
         <button class="button button-block button-positive change-btn" ng-click="changePassword()">Change Password</button>

@@ -1,32 +1,30 @@
 /**
  * Created by joshuarose on 1/8/14.
  */
-questApp.controller('result-tab-Controller', function ($scope, userService) {
+questApp.controller('result-tab-Controller', function ($scope, userService, tabService) {
 
     $scope.newResultCount = "";
+    $scope.offline = false;
 
     $scope.init = function () {
-      $scope.getNewResultCount();
-    };
-
-  $scope.getNewResultCount = function () {
-    if (userService.loggedIn){
-      dpd.results.get({owner: userService.currentUser.username, status : "new"}, function(results, error) {
-        if(error){
-          return;
-        }
-        if (results.length > 0){
-          $scope.newResultCount = results.length.toString();
-        }
-        $scope.$apply();
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
+      var promise = tabService.getNewResultCount();
+      promise.then(function(result){
+        $scope.newResultCount = result;
       });
-    }
-  };
+    };
 
   $scope.$on('tab.shown', function() {
     $scope.init();
   });
   $scope.$on('tab.hidden', function() {
+    $scope.init();
+  });
+
+  $scope.$on('tab.update', function() {
     $scope.init();
   });
 

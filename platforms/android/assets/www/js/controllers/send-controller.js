@@ -11,6 +11,7 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   $scope.sendList = [];
   $scope.selected = "";
   var unmatched = [];
+  $scope.offline = false;
 
   $scope.updateRecipients = function () {
     //if there are  commas
@@ -104,7 +105,7 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   $scope.rightButtons = [
     {
       type: "button-positive",
-      content: "Send",
+      content: "<i class='ion-paper-airplane'></i>",
       tap : function (e) {
         $scope.showWait();
         $scope.updateRecipients().then(function (){
@@ -143,6 +144,10 @@ questApp.controller('send-controller', function ($scope, $stateParams, $state, $
   };
 
   $scope.init = function () {
+    if (dpd === undefined){
+      $scope.offline = true;
+      return;
+    }
     function onSuccess(contacts) {
       for (var i = 0; i < contacts.length; i += 1) {
         var newContact = {};

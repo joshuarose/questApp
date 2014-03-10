@@ -2,8 +2,14 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
     $scope.quests = "";
     $scope.loggedIn = false;
     $scope.empty = true;
+    $scope.showDelete = false;
+    $scope.offline = false;
 
     $scope.init = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       if (userService.loggedIn) {
         $scope.loggedIn = true;
         dpd.quests.get({owner: userService.currentUser.username}, function(results, error) {
@@ -21,15 +27,34 @@ questApp.controller('out-list-controller', function ($scope, userService, $state
         $state.go('tab.login');
       }
     };
-    $scope.deleteQuest = function (quest) {
-        questService.deleteQuest(quest.$id);
+    $scope.deleteQuest = function (item) {
+        dpd.quests.del(item.id, function (result, error){
+
+        });
+        $scope.quests.splice($scope.quests.indexOf(item), 1);
+      $scope.$apply();
     };
   $scope.rightButtons = [
     {
       type: "button-positive",
-      content: "New Quest",
+      content: "<i class='ion-plus-round'></i>",
       tap : function (e) {
         $state.go('tab.makerid', {id : createGuid()});
+      }
+    }
+  ];
+
+  $scope.leftButtons = [
+    {
+      type: "button-positive",
+      content: "<i class='ion-edit'></i>",
+      tap : function (e) {
+        if ($scope.showDelete){
+          $scope.showDelete = false;
+        }
+        else{
+          $scope.showDelete = true;
+        }
       }
     }
   ];

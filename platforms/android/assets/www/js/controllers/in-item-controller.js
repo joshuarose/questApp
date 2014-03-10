@@ -10,7 +10,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   $scope.reveal = false;
   $scope.fail = false;
   $scope.sender = {};
-  var resultCollection = null;
+  $scope.resultCollection = null;
 
   $scope.getNextQuestion = function () {
     $scope.addResult();
@@ -32,7 +32,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
             };
           });
           $scope.fail = true;
-          dpd.results.post(resultCollection, function(results, error){
+          dpd.results.post($scope.resultCollection, function(results, error){
             $scope.$apply();
           });
           return;
@@ -44,7 +44,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
       $scope.clearSelection();
     }
     else{
-      dpd.results.post(resultCollection, function(results, error){
+      dpd.results.post($scope.resultCollection, function(results, error){
         $scope.reveal = true;
         $scope.finishQuest();
         $scope.$apply();
@@ -55,7 +55,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   $scope.leftButtons = [
     {
       type: 'button-positive',
-      content: 'Abandon',
+      content: "<i class='ion-close'></i>",
       tap: function(e) {
         for (var i = 0; i < $scope.quest.recipients.length; i++){
           if ($scope.quest.recipients[i].user === userService.currentUser.username){
@@ -69,6 +69,8 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
 
 
   $scope.endQuest = function () {
+    dpd.results.post($scope.resultCollection, function(results, error){
+    });
     dpd.quests.post($scope.quest.id, $scope.quest, function(results, error){
       $rootScope.$viewHistory = {
         histories: { root: { historyId: 'root', parentHistoryId: null, stack: [], cursor: -1 } },
@@ -82,8 +84,8 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
   };
 
   $scope.addResult  = function () {
-    if (resultCollection === null) {
-      resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : [], status : "new"};
+    if ($scope.resultCollection === null) {
+      $scope.resultCollection = {questtitle : $scope.quest.title, owner : $scope.quest.owner, taker : userService.currentUser.username, answers : [], status : "new"};
     }
 
     var result = {question: $scope.activeQuestion.text, answer: $scope.activeAnswer, unchosen: []};
@@ -93,7 +95,7 @@ questApp.controller('in-item-controller', function($scope, userService, $statePa
         result.unchosen.push($scope.activeQuestion.answers[i].text);
       }
     }
-    resultCollection.answers.push(result);
+    $scope.resultCollection.answers.push(result);
   };
 
   $scope.finishQuest = function () {

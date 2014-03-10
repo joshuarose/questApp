@@ -4,7 +4,12 @@
 questApp.controller('results-item-controller', function($scope, $stateParams) {
   $scope.pageTitle = "";
   $scope.result = "";
+  $scope.offline = false;
   $scope.init = function () {
+    if (dpd === undefined){
+      $scope.offline = true;
+      return;
+    }
       dpd.results.get({id: $stateParams.id}, function(results, error) {
         if(error){
           return;

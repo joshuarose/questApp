@@ -236,3 +236,15 @@ div.left-buttons button, div.right-buttons button{
     background-color: #BA0C0D !important;
     border-color: #BA0C0D !important;
 }
+.login-btn{
+    background-color: #A7D1B0 !important;
+    border-color: #A7D1B0 !important;
+}
+.reset-btn{
+    background-color: #EBA07A !important;
+    border-color: #EBA07A !important;
+}
+.register-btn{
+    background-color: #6DBFBA !important;
+    border-color: #6DBFBA !important;
+}

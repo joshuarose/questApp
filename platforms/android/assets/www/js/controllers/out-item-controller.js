@@ -5,6 +5,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
 
     $scope.quest = null;
     $scope.questions = null;
+    $scope.offline = false;
 
     $scope.addQuestion = function () {
       if ($scope.questions.length >= 4){
@@ -101,7 +102,7 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     $scope.rightButtons = [
       {
         type: "button-positive",
-        content: "Send",
+        content: "<i class='ion-paper-airplane'></i>",
         tap : function (e) {
           var valid = $scope.validateQuest();
           if (valid){
@@ -112,6 +113,10 @@ questApp.controller('out-item-controller', function($scope, questService, userSe
     ];
 
     $scope.init = function () {
+      if (dpd === undefined){
+        $scope.offline = true;
+        return;
+      }
       $scope.quest = null;
       $scope.questions = null;
 

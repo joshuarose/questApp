@@ -4,8 +4,8 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <feature name="SoftKeyboard">
-        <param name="android-package" value="de.phonostar.SoftKeyboard" />
+    <feature name="PushPlugin">
+        <param name="android-package" value="com.plugin.gcm.PushPlugin" />
     </feature>
     <name>QuestApp</name>
     <description>
@@ -21,12 +21,15 @@
     <preference name="DisallowOverscroll" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
         <param name="ios-package" value="CDVDevice" />
     </feature>
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
         <param name="ios-package" value="CDVContacts" />
+    </feature>
+    <feature name="GAPlugin">
+        <param name="android-package" value="com.adobe.plugins.GAPlugin" />
+        <param name="ios-package" value="com.adobe.plugins.GAPlugin" />
     </feature>
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -73,12 +76,6 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="de.phonostar.softkeyboard" />
-    <preference name="com.urbanairship.production_app_key" value="Your production app key" />
-    <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
-    <preference name="com.urbanairship.development_app_key" value="Your development app key" />
-    <preference name="com.urbanairship.development_app_secret" value="Your development app secret" />
-    <preference name="com.urbanairship.in_production" value="false" />
-    <preference name="com.urbanairship.gcm_sender" value="Android only: Your GCM sender id" />
-    <preference name="com.urbanairship.enable_push_onlaunch" value="true" />
+    <gap:plugin name="com.adobe.plugins.pushplugin" />
     <access origin="*" />
 </widget>
