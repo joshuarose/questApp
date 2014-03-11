@@ -203,8 +203,10 @@ questApp.run(function (userService){
       // Your iOS push server needs to know the token before it can push to this device
       // here is where you might want to send it the token for later use.
       if (userService.currentUser.username){
+        dpd.users.me(function(result, error){
           dpd.users.put(result.id, {device : token}, function(results, error){
 
+            });
           });
         };
     }
