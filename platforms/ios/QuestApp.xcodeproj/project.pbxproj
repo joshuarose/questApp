@@ -38,13 +38,13 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		25C5BA38730244C2A232D90E /* CDVContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 866B8C491B704532A59C071E /* CDVContacts.m */; };
-		B80EDF437D8D4276BD5B5AA5 /* CDVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = B38D4FA83B644FB2A7586D6D /* CDVContact.m */; };
 		E87DD2B090394A028A3FB0C8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36800ED00B9140C1A9A0C9EB /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6A998F9318434AFCB4B1050E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDE649D8CA74BE3A8264045 /* AddressBookUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		1C69B87FA27041E088CF87B4 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = D2055C8666124FD98D020ED8 /* AppDelegate+notification.m */; };
-		10E0966346A744A1AF74877E /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF12B628947DC99F137F7 /* PushPlugin.m */; };
-		8CEDDACC9D8C460D978C767E /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F782381F0B4FB98E556FF1 /* CDVLogger.m */; };
+		C790EAA31EE948EF92BBC9A5 /* CDVContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 479ED5A4B3F749F3B7AB1845 /* CDVContacts.m */; };
+		42DCF70DB40A427CB774C30F /* CDVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5160F81F1C421D82BA7123 /* CDVContact.m */; };
+		8D86BFA68CFD41AF8196158B /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA5F83D639419E9A5FC2D6 /* CDVLogger.m */; };
+		5CA233C972D6482187CEDE0E /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A93D4BA32CA04DC0848F821F /* AppDelegate+notification.m */; };
+		6AE9E09A291F4B44BB7744A7 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D07810F623AE4B859034E097 /* PushPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,18 +113,18 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = QuestApp/config.xml; sourceTree = "<group>"; };
-		866B8C491B704532A59C071E /* CDVContacts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVContacts.m"; path = "org.apache.cordova.contacts/CDVContacts.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		B38D4FA83B644FB2A7586D6D /* CDVContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVContact.m"; path = "org.apache.cordova.contacts/CDVContact.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		7DE76EA7931548C588A43AA6 /* CDVContacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVContacts.h"; path = "org.apache.cordova.contacts/CDVContacts.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		A9E0B28D9CB7415FB39B94ED /* CDVContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVContact.h"; path = "org.apache.cordova.contacts/CDVContact.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		36800ED00B9140C1A9A0C9EB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		FEDE649D8CA74BE3A8264045 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AddressBookUI.framework"; path = "System/Library/Frameworks/AddressBookUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		D2055C8666124FD98D020ED8 /* AppDelegate+notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		A28EF12B628947DC99F137F7 /* PushPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushPlugin.m"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		BEFBD8260A184465A2A936C1 /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		02A2FC350AB34AC69DA920FF /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		22F782381F0B4FB98E556FF1 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		0CC820B922B14931AF45C785 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		479ED5A4B3F749F3B7AB1845 /* CDVContacts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVContacts.m"; path = "org.apache.cordova.contacts/CDVContacts.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		ED5160F81F1C421D82BA7123 /* CDVContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVContact.m"; path = "org.apache.cordova.contacts/CDVContact.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		31E52D42C7D84B2F9FA5D43A /* CDVContacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVContacts.h"; path = "org.apache.cordova.contacts/CDVContacts.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		323B75DC88D9433A8C53BF94 /* CDVContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVContact.h"; path = "org.apache.cordova.contacts/CDVContact.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		1BBA5F83D639419E9A5FC2D6 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		27260FDDB686421FBE3D2B8F /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		A93D4BA32CA04DC0848F821F /* AppDelegate+notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		D07810F623AE4B859034E097 /* PushPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushPlugin.m"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		DE3044E6F45D47A593CD1328 /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		0FC7691FBBE94B7BAB81F81E /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,16 +253,16 @@
 				0A5DAD6A35A64FC79E147D75 /* CDVDevice.h */,
 				DE56D84672454095B9779DF0 /* CDVStatusBar.m */,
 				413914561C004FFB9F598047 /* CDVStatusBar.h */,
-				866B8C491B704532A59C071E /* CDVContacts.m */,
-				B38D4FA83B644FB2A7586D6D /* CDVContact.m */,
-				7DE76EA7931548C588A43AA6 /* CDVContacts.h */,
-				A9E0B28D9CB7415FB39B94ED /* CDVContact.h */,
-				D2055C8666124FD98D020ED8 /* AppDelegate+notification.m */,
-				A28EF12B628947DC99F137F7 /* PushPlugin.m */,
-				BEFBD8260A184465A2A936C1 /* AppDelegate+notification.h */,
-				02A2FC350AB34AC69DA920FF /* PushPlugin.h */,
-				22F782381F0B4FB98E556FF1 /* CDVLogger.m */,
-				0CC820B922B14931AF45C785 /* CDVLogger.h */,
+				479ED5A4B3F749F3B7AB1845 /* CDVContacts.m */,
+				ED5160F81F1C421D82BA7123 /* CDVContact.m */,
+				31E52D42C7D84B2F9FA5D43A /* CDVContacts.h */,
+				323B75DC88D9433A8C53BF94 /* CDVContact.h */,
+				1BBA5F83D639419E9A5FC2D6 /* CDVLogger.m */,
+				27260FDDB686421FBE3D2B8F /* CDVLogger.h */,
+				A93D4BA32CA04DC0848F821F /* AppDelegate+notification.m */,
+				D07810F623AE4B859034E097 /* PushPlugin.m */,
+				DE3044E6F45D47A593CD1328 /* AppDelegate+notification.h */,
+				0FC7691FBBE94B7BAB81F81E /* PushPlugin.h */,
 			);
 			name = Plugins;
 			path = QuestApp/Plugins;
@@ -462,11 +462,11 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				25C5BA38730244C2A232D90E /* CDVContacts.m in Sources */,
-				B80EDF437D8D4276BD5B5AA5 /* CDVContact.m in Sources */,
-				1C69B87FA27041E088CF87B4 /* AppDelegate+notification.m in Sources */,
-				10E0966346A744A1AF74877E /* PushPlugin.m in Sources */,
-				8CEDDACC9D8C460D978C767E /* CDVLogger.m in Sources */,
+				C790EAA31EE948EF92BBC9A5 /* CDVContacts.m in Sources */,
+				42DCF70DB40A427CB774C30F /* CDVContact.m in Sources */,
+				8D86BFA68CFD41AF8196158B /* CDVLogger.m in Sources */,
+				5CA233C972D6482187CEDE0E /* AppDelegate+notification.m in Sources */,
+				6AE9E09A291F4B44BB7744A7 /* PushPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

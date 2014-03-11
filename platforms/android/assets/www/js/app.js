@@ -121,7 +121,7 @@ questApp.run(function (userService){
     }
 
     // iOS
-    function onNotificationAPN (event) {
+    window.onNotificationAPN = function onNotificationAPN (event) {
       if ( event.alert )
       {
         navigator.notification.alert(event.alert);
@@ -198,10 +198,15 @@ questApp.run(function (userService){
     }
     // result contains any message sent from the plugin call
 
-    function tokenHandler (result) {
-      alert('token: '+ result);
+    function tokenHandler (token) {
+      alert('token: '+ token);
       // Your iOS push server needs to know the token before it can push to this device
       // here is where you might want to send it the token for later use.
+      if (userService.currentUser.username){
+          dpd.users.put(result.id, {device : token}, function(results, error){
+
+          });
+        };
     }
 
     if ( device.platform == 'android' || device.platform == 'Android' )

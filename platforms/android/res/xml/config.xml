@@ -7,6 +7,9 @@
     <feature name="PushPlugin">
         <param name="android-package" value="com.plugin.gcm.PushPlugin" />
     </feature>
+    <feature name="SoftKeyboard">
+        <param name="android-package" value="de.phonostar.SoftKeyboard" />
+    </feature>
     <name>QuestApp</name>
     <description>
         Quest your friends to vent, share, dig, or challenege

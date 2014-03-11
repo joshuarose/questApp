@@ -121,7 +121,7 @@ questApp.run(function (userService){
     }
 
     // iOS
-    function onNotificationAPN (event) {
+    window.onNotificationAPN = function onNotificationAPN (event) {
       if ( event.alert )
       {
         navigator.notification.alert(event.alert);
