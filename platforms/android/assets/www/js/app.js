@@ -108,7 +108,7 @@ questApp.run(function (editableOptions, editableThemes) {
   editableOptions.theme = 'bs3';
 });
 
-questApp.run(function (){
+questApp.run(function (userService){
   ionic.Platform.ready(function(){
     var device = ionic.Platform.device();
     var pushNotification = window.plugins.pushNotification;
@@ -149,6 +149,15 @@ questApp.run(function (){
           if ( e.regid.length > 0 )
           {
             alert('REGISTERED -> REGID:' + e.regid);
+            if (userService.currentUser.username){
+              alert(userService.currentUser.username);
+              dpd.users.me(function(result, error){
+                alert(result.id);
+                dpd.users.put(result.id, {device : e.regid}, function(results, error){
+
+                });
+              });
+            }
             // Your GCM push server needs to know the regID before it can push to this device
             // here is where you might want to send it the regID for later use.
             console.log("regID = " + e.regid);
@@ -161,10 +170,6 @@ questApp.run(function (){
           if ( e.foreground )
           {
             alert('INLINE NOTIFICATION--');
-
-            // if the notification contains a soundname, play it.
-            var my_media = new Media("/android_asset/www/"+e.soundname);
-            my_media.play();
           }
           else
           {  // otherwise we were launched because the user touched a notification in the notification tray.
