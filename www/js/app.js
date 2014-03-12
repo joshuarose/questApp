@@ -113,11 +113,11 @@ questApp.run(function (userService){
     var device = ionic.Platform.device();
     var pushNotification = window.plugins.pushNotification;
     function successHandler (result) {
-      alert('result = ' + result);
+      //alert('result = ' + result);
     }
 
     function errorHandler (error) {
-      alert('error = ' + error);
+     alert('error = ' + error);
     }
 
     // iOS
@@ -141,18 +141,22 @@ questApp.run(function (userService){
 
 // Android
     window.onNotificationGCM = function onNotificationGCM(e) {
-      alert('EVENT -> RECEIVED:' + e.event);
+      //For testing
+      //alert('EVENT -> RECEIVED:' + e.event);
 
       switch( e.event )
       {
         case 'registered':
           if ( e.regid.length > 0 )
           {
-            alert('REGISTERED -> REGID:' + e.regid);
+            //For testing
+            //alert('REGISTERED -> REGID:' + e.regid);
             if (userService.currentUser.username){
-              alert(userService.currentUser.username);
+              //for testing
+              //alert(userService.currentUser.username);
               dpd.users.me(function(result, error){
-                alert(result.id);
+                //for testing
+                //alert(result.id);
                 dpd.users.put(result.id, {device : e.regid}, function(results, error){
 
                 });
@@ -160,7 +164,7 @@ questApp.run(function (userService){
             }
             // Your GCM push server needs to know the regID before it can push to this device
             // here is where you might want to send it the regID for later use.
-            console.log("regID = " + e.regid);
+            //console.log("regID = " + e.regid);
           }
           break;
 
@@ -169,22 +173,22 @@ questApp.run(function (userService){
           // you might want to play a sound to get the user's attention, throw up a dialog, etc.
           if ( e.foreground )
           {
-            alert('INLINE NOTIFICATION--');
+            //alert('INLINE NOTIFICATION--');
           }
           else
           {  // otherwise we were launched because the user touched a notification in the notification tray.
             if ( e.coldstart )
             {
-              alert('--COLDSTART NOTIFICATION--');
+              //alert('--COLDSTART NOTIFICATION--');
             }
             else
             {
-              alert('--BACKGROUND NOTIFICATION--');
+              //alert('--BACKGROUND NOTIFICATION--');
             }
           }
-
-          alert('MESSAGE -> MSG: ' + e.payload.message);
-          alert('MESSAGE -> MSGCNT: ' + e.payload.msgcnt);
+          toastr.success(e.payload.message);
+          //alert('MESSAGE -> MSG: ' + e.payload.message);
+          //alert('MESSAGE -> MSGCNT: ' + e.payload.msgcnt);
           break;
 
         case 'error':
@@ -199,7 +203,7 @@ questApp.run(function (userService){
     // result contains any message sent from the plugin call
 
     function tokenHandler (token) {
-      alert('token: '+ token);
+      //alert('token: '+ token);
       // Your iOS push server needs to know the token before it can push to this device
       // here is where you might want to send it the token for later use.
       if (userService.currentUser.username){
